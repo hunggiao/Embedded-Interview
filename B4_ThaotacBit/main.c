@@ -2,14 +2,14 @@
 #include<stdint.h>
 
 void readByte(uint8_t byte){
-    uint8_t temp=0b10000000;
-    uint8_t kq=temp&byte;
+    uint8_t temp = 0b10000000;
+    uint8_t kq = temp & byte;
     for(int i=0;i<8;i++){
-        if(kq==0) {
-            printf("0");
+        if(kq==0b10000000) {
+            printf("1");
         }
         else {
-            printf("1");
+            printf("0");
         }
         byte = byte <<1;
     }
@@ -17,7 +17,7 @@ void readByte(uint8_t byte){
 
 int main()
 {
-    uint8_t test =0b10011011;
+    uint8_t test = 0b10011011;
     printf("0b");
     readByte(test);
     printf("\n");
