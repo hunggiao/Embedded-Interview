@@ -89,6 +89,62 @@ Nếu bạn khởi tạo một vùng nhớ quá lớn mà vùng nhớ Heap khôn
 _Ví dụ trường hợp khởi tạo vùng nhớ Heap quá lớn:_
 
 `int *A = (int *)malloc(18446744073709551615);`
+***
+# Macro, Function, Inline
+
+**1. Macro:**
+
+* Được xử lý bởi preprocessor
+* Thay thế đoạn code được khai báo macro vào bất cứ chỗ nào xuất hiện macro đó
+* VD: #define SUM(a,b)     (a+b)
+* Preprocessor khi gặp bất kỳ lời gọi SUM(first+last) nào thì thay ngay bằng (first+last)
+
+**2. Inline:**
+
+* Được xử lý bởi compiler
+* Được khai báo với từ khóa inline
+* Khi compiler thấy bất kỳ chỗ nào xuất hiện inline function, nó sẽ thay thế chỗ đó bởi định nghĩa của hàm đã được compile tương ứng. –> Phần được thay thế không phải code mà là đoạn code đã được compile
+	
+**3. Function**
+
+* Khi thấy hàm được gọi, compiler sẽ phải lưu con trỏ chương trình PC hiện tại vào stack; chuyển PC tới hàm được gọi, thực hiện hàm đó xong và lấy kết quả trả về; sau đó quay lại vị trí ban đầu trong stack trước khi gọi hàm và tiếp tục thực hiện chương trình.
+* Như có thể thấy, các này khiến chương trình tốn thời gian hơn là chỉ cần thay thế đoạn code đã được compile (cách của inline function)
+
+**4. So sánh**
+
+* Macro đơn giản là chỉ thay thế đoạn code macro vào chỗ được gọi trước khi được biên dịch
+* Inline thay thế đoạn mã code đã được biên dịch vào chỗ được gọi
+* Hàm bình thường phải tạo một function call, lưu địa chỉ trước khi gọi hàm vào stack sau đó mới thực hiện hàm và sau cùng là quay trở về địa chỉ trên stack trước khi gọi hàm và thực hiện tiếp chương trình
+* Macro khiến code trở nên dài hơn rất nhiều so với bình thường nhưng thời gian chạy nhanh.
+* Hàm inline cũng khiến code dài hơn, tuy nhiên nó làm giảm thời gian chạy chương trình
+* Hàm bình thường sẽ phải gọi function call nên tốn thời gian hơn inline function nhưng code ngắn gọn hơn.
+***
+# Thao tác BIT
+**1. AND: x=y & z**
+
+![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/4792bda0-11e7-42ab-be91-24f3913a14cb)
+![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/d3561b69-3f42-43be-882b-4521d221ab60)
+
+**2. NOT: x=~y**
+
+![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/171570a9-e47e-426f-b767-936f07b3da5c)
+![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/bb83e7dd-62e9-42b4-88a4-eacea3ede919)
+
+**3. OR: x=y | z**
+
+![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/38cba77d-f2be-4fc5-b936-8c19f6652cd0)
+![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/2bba2c0c-d39c-4349-94a0-59f17229c219)
+
+**4. XOR: x = y ^ z**
+
+![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/328b53db-f44c-4519-b35b-65275ce82205)
+![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/62261a3f-24f3-452b-b13d-4322da32269b)
+  
+**5. Dịch Bit: >> (Dịch phải) và << ( Dịch trái )**
+ 
+![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/2e1f97a1-a4d2-4422-923c-546b76e0d9f7)
+***
+
 
 
 
