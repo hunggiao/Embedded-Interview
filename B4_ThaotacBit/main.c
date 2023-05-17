@@ -2,26 +2,24 @@
 #include<stdint.h>
 
 void readByte(uint8_t byte){
-    uint8_t temp=byte & 0b10000000;
+    uint8_t temp=0b10000000;
+    uint8_t kq=temp&byte;
     for(int i=0;i<8;i++){
-        if(temp==0) {
+        if(kq==0) {
             printf("0");
         }
         else {
             printf("1");
         }
-        temp = temp <<1;
+        byte = byte <<1;
     }
 }
 
-int main(int argc, char const *argv[])
+int main()
 {
-    uint8_t test;
-    printf("Nhap 1 so nhi phan:");
-    scanf("%d",test);
+    uint8_t test =0b10011011;
     printf("0b");
-    uint8_t ham;
-    ham = readByte(test);
-    printf("In so nhi phan ra man hinh: ",ham);
+    readByte(test);
+    printf("\n");
     return 0;
 }
