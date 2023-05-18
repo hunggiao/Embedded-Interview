@@ -3,15 +3,15 @@
 
 void readByte(uint8_t byte){
     uint8_t temp = 0b10000000;
-    uint8_t kq = temp & byte;
     for(int i=0;i<8;i++){
-        if(kq==0b10000000) {
-            printf("1");
-        }
-        else {
+        uint8_t kq = temp & byte;
+        if(kq==0) {
             printf("0");
         }
-        byte = byte <<1;
+        else {
+            printf("1");
+        }
+        byte <<= 1;
     }
 }
 
