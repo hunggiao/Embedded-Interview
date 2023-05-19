@@ -29,6 +29,7 @@ Giai đoạn này sẽ thực hiện:
 
 => Kết thúc quá trình tất cả các đối tượng được liên kết lại với nhau thành một chương trình có thể thực thi được (executable hay .exe) thống nhất.
 ***
+***
 # Phân vùng nhớ
 ![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/4852764e-2926-47d6-86d2-aadc7d29bc7f)
 
@@ -90,6 +91,7 @@ _Ví dụ trường hợp khởi tạo vùng nhớ Heap quá lớn:_
 
 `int *A = (int *)malloc(18446744073709551615);`
 ***
+***
 # Macro, Function, Inline
 
 **1. Macro:**
@@ -119,6 +121,7 @@ _Ví dụ trường hợp khởi tạo vùng nhớ Heap quá lớn:_
 * Hàm inline cũng khiến code dài hơn, tuy nhiên nó làm giảm thời gian chạy chương trình
 * Hàm bình thường sẽ phải gọi function call nên tốn thời gian hơn inline function nhưng code ngắn gọn hơn.
 ***
+***
 # Thao tác BIT
 **1. AND: x=y & z**
 
@@ -144,6 +147,23 @@ _Ví dụ trường hợp khởi tạo vùng nhớ Heap quá lớn:_
  
 ![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/2e1f97a1-a4d2-4422-923c-546b76e0d9f7)
 ***
+**:blue_square: Ví dụ: Giả sử có 1 vi điều khiển 8bit**
+
+![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/e7d842d4-46ba-405e-885c-79b5e9e6ab99)
+* Xây dựng thuật toán set mức cao thấp tại các chân pin:
+
+> Thuật toán set mức cao: PORTA=0b00000000
+```
+    PORTA = PORTA |(0b10000000 >> pin);
+```
+
+=> Giả sử set chân PIN4 về mức cao thì pin=5, 0b10000000 dịch sang phải 5 bit là: 0b00001000 rồi thực hiện phép AND với PORTA thì cho kết quả là: 0b00001000 (chân PIN4 đã set về mức cao).
+> Thuật toán set mức thấp: PORTA=0b11111111
+```
+    PORTA = PORTA & ~(0b10000000 >> pin); 
+```
+
+=> Giả sử set chân PIN3 về mức thấp thì pin=4, 0b10000000 dịch sang phải 4 bit là: 0b00010000, NOT của 0b00010000 là 0b11101111 rồi thực hiện phép OR với PORTA thì cho kết quả là: 0b11101111 (chân PIN3 đã set về mức thấp).
 
 
 
