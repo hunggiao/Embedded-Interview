@@ -2,7 +2,7 @@
 #include<stdint.h>
 
 uint8_t PORTA=0b10101100;
-uint8_t PORTB=0b11111111;
+//uint8_t PORTB=0b11111111;
 void readByte(uint8_t byte){
     uint8_t temp = 0b10000000;
     printf("0b");
@@ -35,13 +35,13 @@ typedef enum{
     HIGH
 }s_status;
 
-void pinHigh(s_pins pin){
+/*void pinHigh(s_pins pin){
     PORTA = PORTA |(0b10000000 >> pin);
 }
 
 void pinLow(s_pins pin){
     PORTB = PORTB & ~(0b10000000 >> pin);
-}
+}*/
 void digitalWrite(s_pins pin, s_status status){
     if(status==1){
        PORTA = PORTA |(0b10000000 >> pin); 
@@ -56,7 +56,10 @@ int main()
     readByte(PORTA);
     pinLow(PIN6);
     readByte(PORTB);*/
-    digitalWrite(PIN4,LOW);
+    digitalWrite(PIN4,LOW);//0b10100100
+    digitalWrite(PIN5,LOW);//0b10100000
+    digitalWrite(PIN7,HIGH);//0b10100001
+    digitalWrite(PIN6,HIGH);//0b10100011
     readByte(PORTA);
     return 0;
 }
