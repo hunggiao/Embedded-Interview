@@ -147,7 +147,7 @@ _Ví dụ trường hợp khởi tạo vùng nhớ Heap quá lớn:_
  
 ![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/2e1f97a1-a4d2-4422-923c-546b76e0d9f7)
 ***
-**:blue_square: Ví dụ: Giả sử có 1 vi điều khiển 8bit**
+**:blue_square: Ví dụ: Giả sử có 1 vi điều khiển 8bit (1 lần quét điều khiển được 8 chân)**
 
 ![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/e7d842d4-46ba-405e-885c-79b5e9e6ab99)
 * Xây dựng thuật toán set mức cao thấp tại các chân pin:
@@ -164,6 +164,8 @@ _Ví dụ trường hợp khởi tạo vùng nhớ Heap quá lớn:_
 ```
 
 => Giả sử set chân PIN3 về mức thấp thì pin=4, 0b10000000 dịch sang phải 4 bit là: 0b00010000, NOT của 0b00010000 là 0b11101111 rồi thực hiện phép OR với PORTA thì cho kết quả là: 0b11101111 (chân PIN3 đã set về mức thấp).
+***
+***
 
 
 
