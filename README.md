@@ -244,8 +244,8 @@ int main()	{
 	int **p_to_p = &ptr;
 
 	pirntf("%p", p_to_p); //In ra địa chỉ của con trỏ ptr
-	printf("%p", *p_to_p); //In ra địa chỉ mà con trỏ ptr đang trỏ đến
-	printf("%d", **p_to_p); //In ra giá trị mà con trỏ ptr đang trỏ đến
+	printf("%p", *p_to_p); //In ra địa chỉ mà con trỏ ptr đang trỏ đến (địa chỉ của biến value)
+	printf("%d", **p_to_p); //In ra giá trị mà con trỏ ptr đang trỏ đến (giá trị của biến value)
 
 	return 0;
 }
