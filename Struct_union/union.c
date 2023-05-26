@@ -26,7 +26,7 @@ int main(int argc, char const *argv[])
     data.a = 12;
     data.b = 27;
     data.c = 35;
-    hienthi(data);
+    hienthi(data);//a:35, b=35, c=35
 
     return 0;
 }
