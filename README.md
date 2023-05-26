@@ -173,6 +173,84 @@ Về mặt ý nghĩa, struct và union cơ bản giống nhau. Tuy nhiên, về 
 * Struct: Dữ liệu của các thành viên của struct được lưu trữ ở những vùng nhớ khác nhau. Do đó kích thước của 1 struct tối thiểu bằng kích thước các thành viên cộng lại tại vì còn phụ thuộc vào bộ nhớ đệm (struct padding)
 
 * Union : Dữ liệu các thành viên sẽ dùng chung 1 vùng nhớ. Kích thước của union được tính là kích thước lớn nhất của kiểu dữ liệu trong union. Việc thay đổi nội dung của 1 thành viên sẽ dẫn đến thay đổi nội dung của các thành viên khác.
+***
+***
+# Pointer
+
+**:blue_square: Khái niệm con trỏ**
+* Bộ nhớ RAM chứa rất nhiều ô nhớ, mỗi ô nhớ có kích thước 1 byte.
+* Mỗi ô nhớ có địa chỉ duy nhất và địa chỉ này được đánh số từ 0 trở đi. Nếu CPU 32 bit thì có 2^32 địa chỉ có thể đánh cho các ô nhớ trong RAM.
+
+![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/f787560d-631e-419e-a6bc-0724e36628c1)
+
+* Khi khai báo biến, trình biên dịch dành riêng một vùng nhớ với địa chỉ duy nhất để lưu biến. Trình biên dịch có nhiệm vụ liên kết địa chỉ ô nhớ đó với tên biến. Khi gọi tên biến, nó sẽ truy xuất tự động đến ô nhớ đã liên kết với tên biến để lấy dữ liệu. Các bạn phải luôn phân biệt giữa địa chỉ bộ nhớ và dữ liệu được lưu trong đó.
+
+![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/83344433-7a60-4968-aa31-1cd15283555f)
+
+* Địa chỉ của biến bản chất cũng là một con số thường được biểu diễn ở hệ cơ số 16. Ta có thể sử dụng con trỏ (pointer) để lưu địa chỉ của các biến.
+
+**:blue_square: Con trỏ là gì?**
+
+* Trong ngôn ngữ C/C++, con trỏ (pointer) là những biến lưu trữ địa chỉ bộ nhớ của những biến khác.
+
+![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/aee473df-3636-43fd-ad0d-4407df5c47fd)
+
+* Trong hình trên, biến var lưu giá trị 5 có địa chỉ là 0x61ff08. Biến pointVar là biến con trỏ, lưu địa chỉ của biến var (trỏ đến vùng nhớ của biến var), tức là nó lưu giá trị 0x61ff08.
+
+**1. Con trỏ NULL:**
+
+* Con trỏ NULL là con trỏ lưu địa chỉ 0x00000000. Tức địa chỉ bộ nhớ 0, có ý nghĩa đặc biệt, cho biết con trỏ không trỏ vào đâu cả.
+
+```
+int *p2;//con trỏ chưa khởi tạo, vẫn trỏ đến một vùng nhớ nào đó không xác định
+int *p3 = NULL;//con trỏ null không trỏ đến vùng nhớ nào
+```
+
+**2. Con trỏ hàm:**
+
+* Con trỏ hàm là con trỏ được tạo ra để lưu trữ địa chỉ của một hàm trong bộ nhớ máy tính.
+
+* Một con trỏ hàm có thể khởi tạo theo mẫu sau:
+
+<kiểu trả về> (*<tên con trỏ>)(<danh sách đối số>);
+
+**3. Con trỏ void:**
+
+* Con trỏ void là con trỏ có thể trỏ đến các vùng nhớ có các kiểu dữ liệu khác nhau
+
+```
+int n;
+float f;
+double d;
+
+void *ptr;
+ptr = &n; // ok
+ptr = &f; // ok
+ptr = &d; // ok
+```
+
+* Tuy nhiên, con trỏ void không xác định được kiểu dữ liệu của vùng nhớ mà nó trỏ tới. Vì vậy muốn truy cập xuất trực tiếp nội dung, ta cần ép kiểu cho con trỏ đó.
+
+**4. Pointer to pointer:**
+
+* Pointer to pointer là một loại con trỏ dùng để lưu trữ địa chỉ của biến con trỏ.
+* Con trỏ trỏ đến con trỏ hoạt động như một con trỏ thông thường. Chúng ta có thể sử dụng toán tử dereference (*) để truy cập giá trị của con trỏ.
+
+```
+int main()	{
+
+	int value = 100;
+	int *ptr = &value;
+	int **p_to_p = &ptr;
+
+	pirntf("%p", p_to_p); //In ra địa chỉ của con trỏ ptr
+	printf("%p", *p_to_p); //In ra địa chỉ mà con trỏ ptr đang trỏ đến (địa chỉ của biến value)
+	printf("%d", **p_to_p); //In ra giá trị mà con trỏ ptr đang trỏ đến (giá trị của biến value)
+
+	return 0;
+}
+```
+
 
 
 
