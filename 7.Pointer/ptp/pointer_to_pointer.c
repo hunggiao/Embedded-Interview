@@ -4,7 +4,7 @@
 
 int main(int argc, char const *argv[])
 {
-    char *array = "Hello"; //test
+    char *array = "Hello"; //text
     char array1[] = "Hello"; //stack
     char *array2[] = { "Hi", "Hello", "world"}; //pointer to pointer
     printf("test: %s\n", *array2); //Hi
