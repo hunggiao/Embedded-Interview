@@ -175,6 +175,12 @@ Về mặt ý nghĩa, struct và union cơ bản giống nhau. Tuy nhiên, về 
 * Union : Dữ liệu các thành viên sẽ dùng chung 1 vùng nhớ. Kích thước của union được tính là kích thước lớn nhất của kiểu dữ liệu trong union. Việc thay đổi nội dung của 1 thành viên sẽ dẫn đến thay đổi nội dung của các thành viên khác.
 ***
 ***
+# Static
+* Biến static cục bộ là biến được khởi tạo 1 lần duy nhất và tồn tại trong suốt thời gian chạy chương trình. Giá trị của nó không bị mất đi khi kết thúc hàm. Khác với biến static toàn cục là có thể gọi bất cứ đâu trong chương trình, biến static cục bộ chỉ có thể gọi trong nội bộ hàm khởi tạo nó. Mỗi lần hàm được gọi, giá trị của biến chính bằng giá trị tại lần gần nhất hàm được gọi.
+* Biến static toàn cục chỉ được truy cập và sử dụng trong nội bộ file khai báo nó, những file khác không truy cập được.
+
+***
+***
 # Pointer
 
 **:blue_square: Khái niệm con trỏ**
