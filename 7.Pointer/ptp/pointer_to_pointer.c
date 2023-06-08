@@ -9,7 +9,7 @@ int main(int argc, char const *argv[])
     char *array2[] = { "Hi", "Hello", "world"}; //pointer to pointer
     printf("test: %s\n", *array2); //Hi
     printf("test: %c\n", *(*(array2+1)+1));//e
-
+    printf("%s",array2[2]);
     /*int a = 27;
     int *ptr = &a;
     int **ptr = & ptr;
