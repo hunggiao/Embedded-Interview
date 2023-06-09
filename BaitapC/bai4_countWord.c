@@ -13,9 +13,9 @@ int length (char array[]){
     return i;
 }
 
-char *splitWords(char * string, const char * delim) {
+char *splitWords(char *string, const char *delim) {
 
-  /* Lớp lưu trữ tĩnh được sử dụng để giữ theo dõi chỉ mục của chuỗi trong mỗi lệnh gọi hàm */
+  /* Biến tĩnh được sử dụng để giữ theo dõi chỉ mục của chuỗi trong mỗi lệnh gọi hàm */
   static char * index;
 
   // Trường hợp ban đầu, nơi người dùng chuyển chuỗi thực trong splitWords
@@ -26,15 +26,15 @@ char *splitWords(char * string, const char * delim) {
     string = index;
   }
 
-  // Trường hợp cuối cùng chỉ mục sẽ là '\ 0'
-  if ( * index == '\0') {
+  // Trường hợp cuối cùng là '\ 0'
+  if ( *index == '\0') {
     return NULL;
   }
 
   while ( * index != '\0') {
     // Lặp lại từng dấu phân cách và kiểm tra xem có bất kỳ dấu phân cách nào khớp với ký tự không
     for (int i = 0; delim[i] != '\0'; i++) {
-      if ( * index == delim[i]) {
+      if ( *index == delim[i]) {
 
         // không quan tâm đến trường hợp sau khi không có ký tự nào 
         // không có sẵn để in trước dấu phân cách. 
@@ -43,14 +43,14 @@ char *splitWords(char * string, const char * delim) {
           index++;
           string++;
         } else {
-          * index = '\0';
+          *index = '\0';
           break;
         }
       }
     }
 
     // trả lại index
-    if ( * index == '\0') {
+    if ( *index == '\0') {
       index++;
       return string;
     }
