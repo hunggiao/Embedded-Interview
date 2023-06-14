@@ -1,6 +1,7 @@
 #include <stdio.h>
-#include "leap.h"
+#include <stdint.h>
 #include "date.h"
+#include "leap.h"
 
 
 int main(int argc, char const *argv[])
