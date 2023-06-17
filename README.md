@@ -276,7 +276,7 @@ int main()	{
 </details>
 	
 <details>
-  <summary><h2>▶Class trong C++r</h2></summary>
+  <summary><h2>▶Class trong C++</h2></summary>
 
 **1. Class là gì?**
 
@@ -433,7 +433,7 @@ class Person {
 
 - Khi đang lập trình trong một file A bạn include 2 file B và C, nhưng 2 file này có cùng định nghĩa một hàm function() giống nhau về tên và tham số truyền vào, nhưng xử lý của mỗi hàm ở mỗi file là khác nhau, vấn đề đặt ra là code làm sao để trình biên dịch hiểu được khi nào bạn muốn gọi function của file B, khi nào bạn muốn gọi function của file C. Khi gọi hàm function() ở file A, trình biên dịch sẽ không biết được hàm function() bạn muốn gọi là hàm được định nghĩa ở file B hay file C. Vì vậy trình biên dịch chương trình sẽ báo lỗi.
 
-**2. Định nghĩa: **
+**2. Định nghĩa:**
 
 - Namespace là từ khóa trong C++ được sử dụng để định nghĩa một phạm vi nhằm mục đích phân biệt các hàm, lớp, biến, ... cùng tên trong các thư viện khác nhau.
 ***
