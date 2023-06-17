@@ -470,8 +470,6 @@ Tuy nhiên, nếu như số lượng phần tử (size) của một mảng là c
 
 **5. erase():** Hàm được sử dụng để xóa các phần tử tùy theo vị trí vùng chứa
 	
-</details>
-
 **6. emplace():** Nó mở rộng vùng chứa bằng cách chèn phần tử mới vào
 
 **7. emplace_back():** Nó được sử dụng để chèn một phần tử mới vào vùng chứa vector, phần tử mới sẽ được thêm vào cuối vector
