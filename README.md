@@ -1,4 +1,6 @@
-# Complier
+<details>
+  <summary><h2>▶Complier</h2></summary>
+	
 Quy trình dịch là quá trình chuyển đổi từ ngôn ngữ bậc cao (NNBC) (C/C++, Pascal, Java, C#…) sang ngôn ngữ đích (ngôn ngữ máy) để máy tính có thể hiểu và thực thi. Ngôn ngữ lập trình C là một ngôn ngữ dạng biên dịch. Chương trình được viết bằng C muốn chạy được trên máy tính phải trải qua một quá trình biên dịch để chuyển đổi từ dạng mã nguồn sang chương trình dạng mã thực thi. Quá trình được chia ra làm 4 giai đoạn chính:
 + Giai đoàn tiền xử lý (Pre-processor)
 + Giai đoạn dịch NNBC sang Asembly (Compiler)
@@ -28,9 +30,12 @@ Giai đoạn này sẽ thực hiện:
 + Chính vì vậy mà các lỗi liên quan đến việc gọi hàm hay sử dụng biến tổng thể mà không tồn tại sẽ bị phát hiện. Kể cả lỗi viết chương trình chính không có hàm main() cũng được phát hiện trong liên kết.
 
 => Kết thúc quá trình tất cả các đối tượng được liên kết lại với nhau thành một chương trình có thể thực thi được (executable hay .exe) thống nhất.
-***
-***
-# Phân vùng nhớ
+
+</details>
+
+<details>
+  <summary><h2>▶Phân vùng nhớ</h2></summary>
+
 ![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/4852764e-2926-47d6-86d2-aadc7d29bc7f)
 
 **1. Text:**
@@ -90,9 +95,11 @@ Nếu bạn khởi tạo một vùng nhớ quá lớn mà vùng nhớ Heap khôn
 _Ví dụ trường hợp khởi tạo vùng nhớ Heap quá lớn:_
 
 `int *A = (int *)malloc(18446744073709551615);`
-***
-***
-# Macro, Function, Inline
+
+</details>
+
+<details>
+  <summary><h2>▶Macro, Function, Inline</h2></summary>
 
 **1. Macro:**
 
@@ -120,9 +127,12 @@ _Ví dụ trường hợp khởi tạo vùng nhớ Heap quá lớn:_
 * Macro khiến code trở nên dài hơn rất nhiều so với bình thường nhưng thời gian chạy nhanh.
 * Hàm inline cũng khiến code dài hơn, tuy nhiên nó làm giảm thời gian chạy chương trình
 * Hàm bình thường sẽ phải gọi function call nên tốn thời gian hơn inline function nhưng code ngắn gọn hơn.
-***
-***
-# Thao tác BIT
+
+</details>
+
+<details>
+  <summary><h2>▶Thao tác BIT</h2></summary>
+
 **1. AND: x=y & z**
 
 ![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/4792bda0-11e7-42ab-be91-24f3913a14cb)
@@ -164,25 +174,31 @@ _Ví dụ trường hợp khởi tạo vùng nhớ Heap quá lớn:_
 ```
 
 => Giả sử set chân PIN3 về mức thấp thì pin=4, 0b10000000 dịch sang phải 4 bit là: 0b00010000, NOT của 0b00010000 là 0b11101111 rồi thực hiện phép OR với PORTA thì cho kết quả là: 0b11101111 (chân PIN3 đã set về mức thấp).
-***
-***
-# Struct và union
+
+</details>
+
+<details>
+  <summary><h2>▶Struct và union</h2></summary>
 
 Về mặt ý nghĩa, struct và union cơ bản giống nhau. Tuy nhiên, về mặt lưu trữ trong bộ nhớ, chúng có sự khác biệt rõ rệt như sau:
 
 * Struct: Dữ liệu của các thành viên của struct được lưu trữ ở những vùng nhớ khác nhau. Do đó kích thước của 1 struct tối thiểu bằng kích thước các thành viên cộng lại tại vì còn phụ thuộc vào bộ nhớ đệm (struct padding)
 
 * Union : Dữ liệu các thành viên sẽ dùng chung 1 vùng nhớ. Kích thước của union được tính là kích thước lớn nhất của kiểu dữ liệu trong union. Việc thay đổi nội dung của 1 thành viên sẽ dẫn đến thay đổi nội dung của các thành viên khác.
-***
-***
-# Static
+
+</details>
+
+<details>
+  <summary><h2>▶Static</h2></summary>
+
 * Biến static cục bộ là biến được khởi tạo 1 lần duy nhất và tồn tại trong suốt thời gian chạy chương trình. Giá trị của nó không bị mất đi khi kết thúc hàm. Khác với biến static toàn cục là có thể gọi bất cứ đâu trong chương trình, biến static cục bộ chỉ có thể gọi trong nội bộ hàm khởi tạo nó. Mỗi lần hàm được gọi, giá trị của biến chính bằng giá trị tại lần gần nhất hàm được gọi.
 * Biến static toàn cục chỉ được truy cập và sử dụng trong nội bộ file khai báo nó, những file khác không truy cập được.
 
-***
-***
-# Pointer
+</details>
 
+<details>
+  <summary><h2>▶Pointer</h2></summary>
+	
 **:blue_square: Khái niệm con trỏ**
 * Bộ nhớ RAM chứa rất nhiều ô nhớ, mỗi ô nhớ có kích thước 1 byte.
 * Mỗi ô nhớ có địa chỉ duy nhất và địa chỉ này được đánh số từ 0 trở đi. Nếu CPU 32 bit thì có 2^32 địa chỉ có thể đánh cho các ô nhớ trong RAM.
@@ -256,9 +272,11 @@ int main()	{
 	return 0;
 }
 ```
-***
-***
-# Class trong C++
+
+</details>
+	
+<details>
+  <summary><h2>▶Class trong C++r</h2></summary>
 
 **1. Class là gì?**
 
@@ -375,9 +393,11 @@ class Person {
 **5. Static member**
 
 - Static member hay thành viên tĩnh trong class C++ cũng tương tự như với static variable (biến tĩnh) trong function. Đối với function, sau khi thực hiện xong khối lệnh và thoát thì biến tĩnh vẫn sẽ không mất đi. Đối với class, thành viên tĩnh sẽ là thuộc tính dùng chung cho tất cả các đối tượng của class đó, cho dù là không có đối tượng nào tồn tại. Tức là bạn có thể khai báo nhiều object, mỗi object các thuộc tính của nó đều khác nhau nhưng riêng static thì chỉ có một và static member tồn tại trong suốt chương trình cho dù có hay không có object nào của nó hay nói ngắn gọn là dùng chung một biến static.
-***
-***
-# Đặc tính của lập trình hướng đối tượng
+
+</details>
+	
+<details>
+  <summary><h2>▶Đặc tính của lập trình hướng đối tượngr</h2></summary>
 
 **:blue_square:** **Có 4 đặc tính quan trọng của lập trình hướng đối tượng trong C++ mà chúng ta cần nắm vững sau đây:**
 
@@ -407,8 +427,7 @@ class Person {
 - Điều đó có nghĩa, dữ liệu và thông tin sẽ được đóng gói lại, giúp các tác động bên ngoài một đối tượng không thể làm thay đổi đối tượng đó, nên sẽ đảm bảo tính toàn vẹn của đối tượng, cũng như giúp dấu đi các dữ liệu thông tin cần được che giấu.
 - Ví dụ đơn giản, khi bạn dùng một cái iphone, bạn không thể thay đổi các cấu trúc bên trong của hệ điều hành iOS, mà chỉ có Apple mới có thể làm được điều này thôi.
 ***
-***
-# Namespace
+## Namespace
 
 **1. Tình huống:**
 
@@ -418,13 +437,13 @@ class Person {
 
 - Namespace là từ khóa trong C++ được sử dụng để định nghĩa một phạm vi nhằm mục đích phân biệt các hàm, lớp, biến, ... cùng tên trong các thư viện khác nhau.
 ***
-# Template
+## Template
 
 * Template (khuôn mẫu) là một từ khóa trong C++, và là một kiểu dữ liệu trừu tượng tổng quát hóa cho các kiểu dữ liệu int, float, double, bool...
 * Template trong C++ có 2 loại đó là function template & class template.
 * Template giúp người lập trình định nghĩa tổng quát cho hàm và lớp thay vì phải nạp chồng (overloading) cho từng hàm hay phương thức với những kiểu dữ liệu khác nhau.
 ***
-# Vector
+## Vector
 
 Giống như là mảng (array), vector trong C++ là một đối tượng dùng để chứa các đối tượng khác, và các đối tượng được chứa này cũng được lưu trữ một cách liên tiếp trong vector.
 
@@ -434,11 +453,11 @@ Tuy nhiên, nếu như số lượng phần tử (size) của một mảng là c
 
 **1. push_back():** Hàm đẩy một phần tử vào vị trí sau cùng của vector. Nếu kiểu của đối tượng được truyền dưới dạng tham số trong push_back() không giống với kiểu của vector thì sẽ bị ném ra.
 
->> ten-vector.push_back(ten-cua-phan-tu);
+> ten-vector.push_back(ten-cua-phan-tu);
 
 **2. assign():** Nó gán một giá trị mới cho các phần tử vector bằng cách thay thế các giá trị cũ.
 
->> ten-vector.assign(int size, int value);
+> ten-vector.assign(int size, int value);
 
 **3. pop_back():** Hàm pop_back () được sử dụng để xóa đi phần tử cuối cùng một vector.
 
@@ -453,3 +472,5 @@ Tuy nhiên, nếu như số lượng phần tử (size) của một mảng là c
 **8. swap():** Hàm được sử dụng để hoán đổi nội dung của một vector này với một vector khác cùng kiểu. Kích thước có thể khác nhau.
 
 **9. clear():** Hàm được sử dụng để loại bỏ tất cả các phần tử của vùng chứa vector.
+
+</details>
