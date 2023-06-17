@@ -397,7 +397,7 @@ class Person {
 </details>
 	
 <details>
-  <summary><h2>▶Đặc tính của lập trình hướng đối tượngr</h2></summary>
+  <summary><h2>▶Đặc tính của lập trình hướng đối tượng</h2></summary>
 
 **:blue_square:** **Có 4 đặc tính quan trọng của lập trình hướng đối tượng trong C++ mà chúng ta cần nắm vững sau đây:**
 
@@ -469,6 +469,8 @@ Tuy nhiên, nếu như số lượng phần tử (size) của một mảng là c
 **4. insert():** Hàm này chèn các phần tử mới vào trước phần tử trước vị trí được trỏ bởi vòng lặp. Chúng ta cũng có thể chuyển một số đối số thứ ba, đếm số lần phần tử được chèn vào trước vị trí được trỏ.
 
 **5. erase():** Hàm được sử dụng để xóa các phần tử tùy theo vị trí vùng chứa
+	
+</details>
 
 **6. emplace():** Nó mở rộng vùng chứa bằng cách chèn phần tử mới vào
 
