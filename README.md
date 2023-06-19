@@ -1,4 +1,6 @@
-# Complier
+<details>
+  <summary><h2>▶Complier</h2></summary>
+	
 Quy trình dịch là quá trình chuyển đổi từ ngôn ngữ bậc cao (NNBC) (C/C++, Pascal, Java, C#…) sang ngôn ngữ đích (ngôn ngữ máy) để máy tính có thể hiểu và thực thi. Ngôn ngữ lập trình C là một ngôn ngữ dạng biên dịch. Chương trình được viết bằng C muốn chạy được trên máy tính phải trải qua một quá trình biên dịch để chuyển đổi từ dạng mã nguồn sang chương trình dạng mã thực thi. Quá trình được chia ra làm 4 giai đoạn chính:
 + Giai đoàn tiền xử lý (Pre-processor)
 + Giai đoạn dịch NNBC sang Asembly (Compiler)
@@ -28,9 +30,12 @@ Giai đoạn này sẽ thực hiện:
 + Chính vì vậy mà các lỗi liên quan đến việc gọi hàm hay sử dụng biến tổng thể mà không tồn tại sẽ bị phát hiện. Kể cả lỗi viết chương trình chính không có hàm main() cũng được phát hiện trong liên kết.
 
 => Kết thúc quá trình tất cả các đối tượng được liên kết lại với nhau thành một chương trình có thể thực thi được (executable hay .exe) thống nhất.
-***
-***
-# Phân vùng nhớ
+
+</details>
+
+<details>
+  <summary><h2>▶Phân vùng nhớ</h2></summary>
+
 ![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/4852764e-2926-47d6-86d2-aadc7d29bc7f)
 
 **1. Text:**
@@ -90,9 +95,11 @@ Nếu bạn khởi tạo một vùng nhớ quá lớn mà vùng nhớ Heap khôn
 _Ví dụ trường hợp khởi tạo vùng nhớ Heap quá lớn:_
 
 `int *A = (int *)malloc(18446744073709551615);`
-***
-***
-# Macro, Function, Inline
+
+</details>
+
+<details>
+  <summary><h2>▶Macro, Function, Inline</h2></summary>
 
 **1. Macro:**
 
@@ -120,9 +127,12 @@ _Ví dụ trường hợp khởi tạo vùng nhớ Heap quá lớn:_
 * Macro khiến code trở nên dài hơn rất nhiều so với bình thường nhưng thời gian chạy nhanh.
 * Hàm inline cũng khiến code dài hơn, tuy nhiên nó làm giảm thời gian chạy chương trình
 * Hàm bình thường sẽ phải gọi function call nên tốn thời gian hơn inline function nhưng code ngắn gọn hơn.
-***
-***
-# Thao tác BIT
+
+</details>
+
+<details>
+  <summary><h2>▶Thao tác BIT</h2></summary>
+
 **1. AND: x=y & z**
 
 ![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/4792bda0-11e7-42ab-be91-24f3913a14cb)
@@ -164,25 +174,31 @@ _Ví dụ trường hợp khởi tạo vùng nhớ Heap quá lớn:_
 ```
 
 => Giả sử set chân PIN3 về mức thấp thì pin=4, 0b10000000 dịch sang phải 4 bit là: 0b00010000, NOT của 0b00010000 là 0b11101111 rồi thực hiện phép OR với PORTA thì cho kết quả là: 0b11101111 (chân PIN3 đã set về mức thấp).
-***
-***
-# Struct và union
+
+</details>
+
+<details>
+  <summary><h2>▶Struct và union</h2></summary>
 
 Về mặt ý nghĩa, struct và union cơ bản giống nhau. Tuy nhiên, về mặt lưu trữ trong bộ nhớ, chúng có sự khác biệt rõ rệt như sau:
 
 * Struct: Dữ liệu của các thành viên của struct được lưu trữ ở những vùng nhớ khác nhau. Do đó kích thước của 1 struct tối thiểu bằng kích thước các thành viên cộng lại tại vì còn phụ thuộc vào bộ nhớ đệm (struct padding)
 
 * Union : Dữ liệu các thành viên sẽ dùng chung 1 vùng nhớ. Kích thước của union được tính là kích thước lớn nhất của kiểu dữ liệu trong union. Việc thay đổi nội dung của 1 thành viên sẽ dẫn đến thay đổi nội dung của các thành viên khác.
-***
-***
-# Static
+
+</details>
+
+<details>
+  <summary><h2>▶Static</h2></summary>
+
 * Biến static cục bộ là biến được khởi tạo 1 lần duy nhất và tồn tại trong suốt thời gian chạy chương trình. Giá trị của nó không bị mất đi khi kết thúc hàm. Khác với biến static toàn cục là có thể gọi bất cứ đâu trong chương trình, biến static cục bộ chỉ có thể gọi trong nội bộ hàm khởi tạo nó. Mỗi lần hàm được gọi, giá trị của biến chính bằng giá trị tại lần gần nhất hàm được gọi.
 * Biến static toàn cục chỉ được truy cập và sử dụng trong nội bộ file khai báo nó, những file khác không truy cập được.
 
-***
-***
-# Pointer
+</details>
 
+<details>
+  <summary><h2>▶Pointer</h2></summary>
+	
 **:blue_square: Khái niệm con trỏ**
 * Bộ nhớ RAM chứa rất nhiều ô nhớ, mỗi ô nhớ có kích thước 1 byte.
 * Mỗi ô nhớ có địa chỉ duy nhất và địa chỉ này được đánh số từ 0 trở đi. Nếu CPU 32 bit thì có 2^32 địa chỉ có thể đánh cho các ô nhớ trong RAM.
@@ -257,8 +273,271 @@ int main()	{
 }
 ```
 
+</details>
+	
+<details>
+  <summary><h2>▶Class trong C++</h2></summary>
 
+**1. Class là gì?**
 
+Class hay lớp là một mô tả trừu tượng (abstract) của nhóm các đối tượng (object) có cùng bản chất, ngược lại mỗi một đối tượng là một thể hiện cụ thể (instance) cho những mô tả trừu tượng đó. Một class trong C++ sẽ có các đặc điểm sau:
 
+* Một class bao gồm các thành phần dữ liệu (thuộc tính hay property) và các phương thức (hàm thành phần hay method).
 
+* Class thực chất là một kiểu dữ liệu do người lập trình định nghĩa.
 
+*  Trong C++, từ khóa class sẽ chỉ điểm bắt đầu của một class sẽ được cài đặt.
+
+**_Ví dụ về một class đơn giản, class Car:_** Một chiếc xe hơi vậy thì sẽ có chung những đặc điểm là đều có vô lăng, có bánh xe nhiều hơn 3, có động cơ… Đó là một class, một cái model hay mẫu mà người ta đã quy định là nếu đúng như vậy thì nó là xe hơi. Nhưng mà xe thì có thể có nhiều hãng khác nhau, BMW, Vinfast, Toyota… Thì mỗi hãng xe lại có những model xe khác nhau nhưng chúng đều là xe hơi. Vậy thì trong lập trình cũng vậy, class là quy định ra một mẫu, một cái model mà các thể hiện của nó (instance) hay đối tượng (object) phải tuân theo.
+
+**2. Khai báo class và sử dụng class**
+
+**_Ví dụ một class cơ bản:_**
+
+```
+class Person {
+public:
+   string firstName; // property
+   string lastName; // property
+   int age; // property
+   void fullname() { // method
+      cout << firstName << ' ' << lastName;
+   }
+};
+```
+
+- Cú pháp tạo object của một class và sử dụng các thuộc tính và phương thức:
+
+```
+Person person;
+person.firstName = "Khiem";
+person.lastName = "Le";
+person.fullname(); // sẽ in ra màn hình là "Khiem Le"
+```
+
+**3. Access modifiers & properties declaration**
+
+Access modifier là phạm vi truy cập của các thuộc tính và phương thức sẽ được khai báo bên dưới nó. Có 3 phạm vi truy cập trong C++ là public, private và protected:
+
+ * Các thuộc tính và phương thức khai báo public thì có thể được truy cập trực tiếp thông qua instance của class đó. Các thuộc tính nên khai báo là public nếu bạn không có ràng buộc điều kiện trước khi gán (người dùng có thể thoải mái gán giá trị) hoặc bạn không cần xử lý trước khi trả về giá trị thuộc tính
+
+ * Các thuộc tính private thường được sử dụng khi bạn không mong muốn người khác có thể tùy ý gán giá trị hoặc là bạn muốn xử lý trước khi trả về giá trị
+
+ * Đối với protected, các phương thức và thuộc tính chỉ có thể truy cập qua các class kế thừa nó hoặc chính nó.
+
+***Ví dụ:***
+
+```
+class MyClass
+{
+   public:
+          int public_property;
+   private:
+          int _private_property;
+};
+```
+
+**4. Method declaration**
+
+- Phương thức cũng giống như một hàm bình thường.
+
+- Đối với phương thức thì có hai cách định nghĩa thi hành: định nghĩa thi hành trong lúc định nghĩa class và định nghĩa thi hành bên ngoài class.
+
+- Định nghĩa thi hành bên trong class:
+
+```
+class Animal {
+  public:
+         string sound;
+         void makeNoise() {
+         cout << sound;
+         }
+};
+```
+
+- Định nghĩa thi hành bên ngoài class:
+
+```
+class Animal {
+   public:
+          string sound;
+          void makeNoise();
+};
+void Animal::makeNoise() {
+   cout << sound;
+}
+```
+
+**4. Contructor**
+
+- Constructor hay hàm dựng là một hàm đặc biệt, nó sẽ được gọi ngay khi chúng ta khởi tạo một object.
+
+```
+class Person {
+   public:
+	string firstName;
+	string lastName;
+	int age;
+	Person(string _firstName, string _lastName, int _age)
+	{
+	  firstName = _firstName;
+	  lastName = _lastName;
+	  age = _age;
+	}
+	void fullname() {
+		cout << firstName << ' ' << lastName;
+	}
+};
+```
+
+**5. Static member**
+
+- Static member hay thành viên tĩnh trong class C++ cũng tương tự như với static variable (biến tĩnh) trong function. Đối với function, sau khi thực hiện xong khối lệnh và thoát thì biến tĩnh vẫn sẽ không mất đi. Đối với class, thành viên tĩnh sẽ là thuộc tính dùng chung cho tất cả các đối tượng của class đó, cho dù là không có đối tượng nào tồn tại. Tức là bạn có thể khai báo nhiều object, mỗi object các thuộc tính của nó đều khác nhau nhưng riêng static thì chỉ có một và static member tồn tại trong suốt chương trình cho dù có hay không có object nào của nó hay nói ngắn gọn là dùng chung một biến static.
+
+</details>
+	
+<details>
+  <summary><h2>▶Đặc tính của lập trình hướng đối tượng</h2></summary>
+
+**:blue_square:** **Có 4 đặc tính quan trọng của lập trình hướng đối tượng trong C++ mà chúng ta cần nắm vững sau đây:**
+
+**1. Inheritance (Tính kế thừa)**
+
+- Tính kế thừa trong lập trình hướng đối tượng có ý nghĩa, một class có thể kế thừa các thuộc tính của một class khác đã tồn tại trước đó.
+
+- Khi một class con được tạo ra bởi việc kế thừa thuộc tính của class cha thì chúng ta sẽ gọi class con đó là subclass trong C++, và class cha chính là superclass trong C++.
+
+**2. Abstraction (Tính trừu tượng)**
+
+- Tính trừu tượng trong lập trình hướng đối tượng là một khả năng mà chương trình có thể bỏ qua sự phức tạp bằng cách tập trung vào cốt lõi của thông tin cần xử lý.
+
+- Điều đó có nghĩa, bạn có thể xử lý một đối tượng bằng cách gọi tên một phương thức và thu về kết quả xử lý, mà không cần biết làm cách nào đối tượng đó được các thao tác trong class.
+
+- Ví dụ đơn giản, bạn có thể nấu cơm bằng nồi cơm điện bằng cách rất đơn giản là ấn công tắc nấu, mà không cần biết là bên trong cái nồi cơm điện đó đã làm thế nào mà gạo có thể nấu thành cơm.
+
+**3. Polymorphism (Tính đa hình)**
+
+- Tính đa hình trong lập trình hướng đối tượng là một khả năng mà một phương thức trong class có thể đưa ra các kết quả hoàn toàn khác nhau, tùy thuộc vào dữ liệu được xử lý.
+
+- Ví dụ đơn giản, cùng là một class quản lý dữ liệu là các con vật, thì hành động sủa hay kêu của chúng được định nghĩa trong class sẽ cho ra kết quả khác nhau, ví dụ nếu là con mèo thì kêu meo meo, còn con chó thì sủa gâu gâu chẳng hạn.
+
+**4. Encapsulation (Tính đóng gói)**
+
+- Tính đóng gói trong lập trình hướng đối tượng có ý nghĩa không cho phép người sử dụng các đối tượng thay đổi trạng thái nội tại của một đối tượng, mà chỉ có phương thức nội tại của đối tượng có thể thay đổi chính nó.
+- Điều đó có nghĩa, dữ liệu và thông tin sẽ được đóng gói lại, giúp các tác động bên ngoài một đối tượng không thể làm thay đổi đối tượng đó, nên sẽ đảm bảo tính toàn vẹn của đối tượng, cũng như giúp dấu đi các dữ liệu thông tin cần được che giấu.
+- Ví dụ đơn giản, khi bạn dùng một cái iphone, bạn không thể thay đổi các cấu trúc bên trong của hệ điều hành iOS, mà chỉ có Apple mới có thể làm được điều này thôi.
+
+</details>
+	
+<details>
+  <summary><h2>▶Các đối tượng trong C++</h2></summary>
+	
+## Namespace
+
+**1. Tình huống:**
+
+- Khi đang lập trình trong một file A bạn include 2 file B và C, nhưng 2 file này có cùng định nghĩa một hàm function() giống nhau về tên và tham số truyền vào, nhưng xử lý của mỗi hàm ở mỗi file là khác nhau, vấn đề đặt ra là code làm sao để trình biên dịch hiểu được khi nào bạn muốn gọi function của file B, khi nào bạn muốn gọi function của file C. Khi gọi hàm function() ở file A, trình biên dịch sẽ không biết được hàm function() bạn muốn gọi là hàm được định nghĩa ở file B hay file C. Vì vậy trình biên dịch chương trình sẽ báo lỗi.
+
+**2. Định nghĩa:**
+
+- Namespace là từ khóa trong C++ được sử dụng để định nghĩa một phạm vi nhằm mục đích phân biệt các hàm, lớp, biến, ... cùng tên trong các thư viện khác nhau.
+***
+## Template
+
+* Template (khuôn mẫu) là một từ khóa trong C++, và là một kiểu dữ liệu trừu tượng tổng quát hóa cho các kiểu dữ liệu int, float, double, bool...
+* Template trong C++ có 2 loại đó là function template & class template.
+* Template giúp người lập trình định nghĩa tổng quát cho hàm và lớp thay vì phải nạp chồng (overloading) cho từng hàm hay phương thức với những kiểu dữ liệu khác nhau.
+***
+## Vector
+
+Giống như là mảng (array), vector trong C++ là một đối tượng dùng để chứa các đối tượng khác, và các đối tượng được chứa này cũng được lưu trữ một cách liên tiếp trong vector.
+
+Tuy nhiên, nếu như số lượng phần tử (size) của một mảng là cố định, thì ở vector, nó hoàn toàn có thể thay đổi trong suốt quá trình làm việc của chương trình.
+
+**Modifiers**
+
+**1. push_back():** Hàm đẩy một phần tử vào vị trí sau cùng của vector. Nếu kiểu của đối tượng được truyền dưới dạng tham số trong push_back() không giống với kiểu của vector thì sẽ bị ném ra.
+
+> ten-vector.push_back(ten-cua-phan-tu);
+
+**2. assign():** Nó gán một giá trị mới cho các phần tử vector bằng cách thay thế các giá trị cũ.
+
+> ten-vector.assign(int size, int value);
+
+**3. pop_back():** Hàm pop_back () được sử dụng để xóa đi phần tử cuối cùng một vector.
+
+**4. insert():** Hàm này chèn các phần tử mới vào trước phần tử trước vị trí được trỏ bởi vòng lặp. Chúng ta cũng có thể chuyển một số đối số thứ ba, đếm số lần phần tử được chèn vào trước vị trí được trỏ.
+
+**5. erase():** Hàm được sử dụng để xóa các phần tử tùy theo vị trí vùng chứa
+	
+**6. emplace():** Nó mở rộng vùng chứa bằng cách chèn phần tử mới vào
+
+**7. emplace_back():** Nó được sử dụng để chèn một phần tử mới vào vùng chứa vector, phần tử mới sẽ được thêm vào cuối vector
+
+**8. swap():** Hàm được sử dụng để hoán đổi nội dung của một vector này với một vector khác cùng kiểu. Kích thước có thể khác nhau.
+
+**9. clear():** Hàm được sử dụng để loại bỏ tất cả các phần tử của vùng chứa vector.
+***
+## Map
+
+**1. Khái niệm:**
+	
+- Map trong C++ là một tập hợp các phần tử được sắp xếp theo thứ tự cụ thể, mà mỗi phần tử trong đó được hình thành bởi sự kết hợp của một cặp khóa và giá trị (key & value), với mỗi khóa là duy nhất trong map. Trong map, các khóa (key) được sử dụng để sắp xếp và xác định giá trị (value) tương ứng được liên kết với nó. Mỗi khóa trong map là duy nhất và không được phép trùng lặp. Các giá trị trong map thì có thể trùng lặp, chúng có thể thay đổi giá trị, cũng như là được chèn hoặc xóa khỏi map.
+
+**2. Sử dụng map:**
+
+- Để sử dụng map bạn cần khai báo: ```#include<map>```
+	
+- Để khai báo một biến kiểu map, ta có công thức chung sau:
+
+```
+map<kiểu dữ liệu, kiểu dữ liệu> tên biến;
+
+map<int, int> a;
+map<char, int> b;
+```
+
+**3. Các phép toán cơ bản của map**
+
+- Trả về kích thước hiện tại của map: ```m.size();```
+
+- Kiểm tra map có rỗng hoặc không: ```m.empty(); // trả về true nếu map rỗng, false nếu không rỗng```
+	
+- Truy cập phần tử trong map: ```m[x]; // truy cập value của khóa x```
+	
+- Chỉnh sửa phần tử trong map (phần tử chỉnh sửa phải ở dạng "cặp"): ```m.insert(x);```
+	
+- Xóa phần tử trong map: ```m.erase(x);```
+
+- Xóa tất cả phần tử trong map: ```m.clear();```
+***
+## Linked list
+
+**1. Khái niệm:**
+- Danh sách liên kết đơn (Single Linked List) là một cấu trúc dữ liệu động, nó là một danh sách mà mỗi phần tử đều liên kết với phần tử đúng sau nó trong danh sách. Mỗi phần tử (được gọi là một node hay nút) trong danh sách liên kết đơn là một cấu trúc có hai thành phần:
+	
+	- Thành phần dữ liệu: lưu thông tin về bản thân phần tử đó.
+	
+	- Thành phần liên kết: lưu địa chỉ phần tử đứng sau trong danh sách, nếu phần tử đó là phần tử cuối cùng thì thành phần này bằng NULL.
+
+![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/8bc662b5-c0c5-4850-ae00-905001dbd7b2)
+
+**2. Đặc điểm:**
+
+- Do danh sách liên kết đơn là một cấu trúc dữ liệu động, được tạo nên nhờ việc cấp phát động nên nó mang một số đặc điểm sau đây:
+
+	- Được cấp phát bộ nhớ khi chạy chương trình
+	
+	- Có thể đổi thay kích thước qua việc thêm, xóa phần tử
+	
+	- Kích thước tối đa phụ thuộc vào bộ nhớ khả dụng của RAM
+	
+	- Các phần tử được lưu trữ tự nhiên (không liên tiếp) trong RAM
+- Và do tính liên kết của phần tử đầu và phần tử đứng sau nó trong danh sách liên kết đơn, nó có những đặc điểm sau:
+
+	- Chỉ cần nắm được phần tử đầu và cuối là có thể quản lý được danh sách
+	
+	- Truy cập tới phần tử ngẫu nhiên phải duyệt từ đầu tới vị trí đó
+	
+	- Chỉ có thể tìm kiếm tuyến tính một phần tử
+</details>
