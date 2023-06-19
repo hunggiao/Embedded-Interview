@@ -477,5 +477,67 @@ Tuy nhiên, nếu như số lượng phần tử (size) của một mảng là c
 **8. swap():** Hàm được sử dụng để hoán đổi nội dung của một vector này với một vector khác cùng kiểu. Kích thước có thể khác nhau.
 
 **9. clear():** Hàm được sử dụng để loại bỏ tất cả các phần tử của vùng chứa vector.
+***
+## Map
 
+**1. Khái niệm:**
+	
+- Map trong C++ là một tập hợp các phần tử được sắp xếp theo thứ tự cụ thể, mà mỗi phần tử trong đó được hình thành bởi sự kết hợp của một cặp khóa và giá trị (key & value), với mỗi khóa là duy nhất trong map. Trong map, các khóa (key) được sử dụng để sắp xếp và xác định giá trị (value) tương ứng được liên kết với nó. Mỗi khóa trong map là duy nhất và không được phép trùng lặp. Các giá trị trong map thì có thể trùng lặp, chúng có thể thay đổi giá trị, cũng như là được chèn hoặc xóa khỏi map.
+
+**2. Sử dụng map:**
+
+- Để sử dụng map bạn cần khai báo: ```#include<map>```
+	
+- Để khai báo một biến kiểu map, ta có công thức chung sau:
+
+```
+map<kiểu dữ liệu, kiểu dữ liệu> tên biến;
+
+map<int, int> a;
+map<char, int> b;
+```
+
+**3. Các phép toán cơ bản của map**
+
+- Trả về kích thước hiện tại của map: ```m.size();```
+
+- Kiểm tra map có rỗng hoặc không: ```m.empty(); // trả về true nếu map rỗng, false nếu không rỗng```
+	
+- Truy cập phần tử trong map: ```m[x]; // truy cập value của khóa x```
+	
+- Chỉnh sửa phần tử trong map (phần tử chỉnh sửa phải ở dạng "cặp"): ```m.insert(x);```
+	
+- Xóa phần tử trong map: ```m.erase(x);```
+
+- Xóa tất cả phần tử trong map: ```m.clear();```
+***
+## Linked list
+
+**1. Khái niệm:**
+- Danh sách liên kết đơn (Single Linked List) là một cấu trúc dữ liệu động, nó là một danh sách mà mỗi phần tử đều liên kết với phần tử đúng sau nó trong danh sách. Mỗi phần tử (được gọi là một node hay nút) trong danh sách liên kết đơn là một cấu trúc có hai thành phần:
+	
+	- Thành phần dữ liệu: lưu thông tin về bản thân phần tử đó.
+	
+	- Thành phần liên kết: lưu địa chỉ phần tử đứng sau trong danh sách, nếu phần tử đó là phần tử cuối cùng thì thành phần này bằng NULL.
+
+![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/8bc662b5-c0c5-4850-ae00-905001dbd7b2)
+
+**2. Đặc điểm:**
+
+- Do danh sách liên kết đơn là một cấu trúc dữ liệu động, được tạo nên nhờ việc cấp phát động nên nó mang một số đặc điểm sau đây:
+
+	- Được cấp phát bộ nhớ khi chạy chương trình
+	
+	- Có thể đổi thay kích thước qua việc thêm, xóa phần tử
+	
+	- Kích thước tối đa phụ thuộc vào bộ nhớ khả dụng của RAM
+	
+	- Các phần tử được lưu trữ tự nhiên (không liên tiếp) trong RAM
+- Và do tính liên kết của phần tử đầu và phần tử đứng sau nó trong danh sách liên kết đơn, nó có những đặc điểm sau:
+
+	- Chỉ cần nắm được phần tử đầu và cuối là có thể quản lý được danh sách
+	
+	- Truy cập tới phần tử ngẫu nhiên phải duyệt từ đầu tới vị trí đó
+	
+	- Chỉ có thể tìm kiếm tuyến tính một phần tử
 </details>
