@@ -33,6 +33,8 @@ int main(int argc, char const *argv[])
     for(int item : array){
         printf("%d\n",item);
     }
+
+    auto data = 10; // kiểu dữ kiệu phụ thuộc vào giá trị được gán
     
     return 0;
 }
