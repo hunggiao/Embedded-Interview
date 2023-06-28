@@ -38,7 +38,7 @@ int main(int argc, char const *argv[])
     t1.set_day(27,03,1999);
     t2.set_day(22,06,2023);
     t3.set_day(2,9,2023);
-    cout<<"Tuoi cua nguoi do la:  "<<t1.age(t2)<<endl;
+    cout<<"Tuoi cua nguoi do la: "<<t1.age(t2)<<endl;
     t3.check_holiday();
     return 0;
 }
