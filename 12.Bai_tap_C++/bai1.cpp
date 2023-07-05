@@ -2,26 +2,26 @@
 #include <math.h>
 class Diem{
     private:
-        int8_t toaDoX;
-        int8_t toadoY;
+        int toaDoX;
+        int toadoY;
     public:
-        Diem(int8_t x = 0, int8_t y = 0);
-        int8_t getX();
-        int8_t getY();
+        Diem(int x = 0, int y = 0);
+        int getX();
+        int getY();
 
 };
 
-Diem::Diem(int8_t x, int8_t y){
+Diem::Diem(int x, int y){
     toaDoX = x;
     toadoY = y;
 }
 
-int8_t Diem::getX(){
+int Diem::getX(){
     return toaDoX;
 }
 
 
-int8_t Diem::getY(){
+int Diem::getY(){
     return toadoY;
 }
 

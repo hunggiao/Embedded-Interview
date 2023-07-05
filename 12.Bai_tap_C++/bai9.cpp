@@ -16,7 +16,7 @@ class CAR{
     public:
         CAR(typeColor COLOR, string TYPEMOTOR, int KM);
         void inforCar();
-        int8_t check_km(int km_now);
+        int check_km(int km_now);
 
 };
 
@@ -35,7 +35,7 @@ void CAR::inforCar(){
     cout<<"So km da di: "<<km<<endl;
 }
 
-int8_t CAR::check_km(int km_now){
+int CAR::check_km(int km_now){
     cout<<"Quang duong di duoc: "<< (int)(km_now - km) <<" km"<<endl;
 }
 
