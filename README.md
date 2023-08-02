@@ -558,6 +558,8 @@ map<char, int> b;
 
 **1. Khái niệm:**
 
+![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/a0d9a012-de25-4ad0-8e82-b69457daf3df)
+
 - SPI (Serial Peripheral Interface) là một chuẩn truyền thông nối tiếp tốc độ cao do Motorola đề xuất.
 	- Các bit dữ liệu được truyền nối tiếp nhau và có xung clock đồng bộ.
    	- 1 Master có thể đấu nối song song với nhiều Slave.
@@ -601,6 +603,8 @@ map<char, int> b;
  ## Giao thức I2C:
 
  **1. Khái niệm:**
+
+![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/a2a4cb41-69dd-4218-91df-6f694129b58d)
 
 - I2C chỉ sử dụng hai dây để truyền dữ liệu giữa các thiết bị:
  
