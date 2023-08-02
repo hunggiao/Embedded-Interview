@@ -1,5 +1,8 @@
 <details>
-  <summary><h2>▶Complier</h2></summary>
+  <summary><h1>▶C Language</h1></summary>
+
+<details>
+  <summary><h2>Complier</h2></summary>
 	
 Quy trình dịch là quá trình chuyển đổi từ ngôn ngữ bậc cao (NNBC) (C/C++, Pascal, Java, C#…) sang ngôn ngữ đích (ngôn ngữ máy) để máy tính có thể hiểu và thực thi. Ngôn ngữ lập trình C là một ngôn ngữ dạng biên dịch. Chương trình được viết bằng C muốn chạy được trên máy tính phải trải qua một quá trình biên dịch để chuyển đổi từ dạng mã nguồn sang chương trình dạng mã thực thi. Quá trình được chia ra làm 4 giai đoạn chính:
 + Giai đoàn tiền xử lý (Pre-processor)
@@ -34,7 +37,7 @@ Giai đoạn này sẽ thực hiện:
 </details>
 
 <details>
-  <summary><h2>▶Phân vùng nhớ</h2></summary>
+  <summary><h2>Phân vùng nhớ</h2></summary>
 
 ![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/4852764e-2926-47d6-86d2-aadc7d29bc7f)
 
@@ -99,7 +102,7 @@ _Ví dụ trường hợp khởi tạo vùng nhớ Heap quá lớn:_
 </details>
 
 <details>
-  <summary><h2>▶Macro, Function, Inline</h2></summary>
+  <summary><h2>Macro, Function, Inline</h2></summary>
 
 **1. Macro:**
 
@@ -131,7 +134,7 @@ _Ví dụ trường hợp khởi tạo vùng nhớ Heap quá lớn:_
 </details>
 
 <details>
-  <summary><h2>▶Thao tác BIT</h2></summary>
+  <summary><h2>Thao tác BIT</h2></summary>
 
 **1. AND: x=y & z**
 
@@ -178,7 +181,7 @@ _Ví dụ trường hợp khởi tạo vùng nhớ Heap quá lớn:_
 </details>
 
 <details>
-  <summary><h2>▶Struct và union</h2></summary>
+  <summary><h2>Struct và union</h2></summary>
 
 Về mặt ý nghĩa, struct và union cơ bản giống nhau. Tuy nhiên, về mặt lưu trữ trong bộ nhớ, chúng có sự khác biệt rõ rệt như sau:
 
@@ -189,7 +192,7 @@ Về mặt ý nghĩa, struct và union cơ bản giống nhau. Tuy nhiên, về 
 </details>
 
 <details>
-  <summary><h2>▶Static</h2></summary>
+  <summary><h2>Static</h2></summary>
 
 * Biến static cục bộ là biến được khởi tạo 1 lần duy nhất và tồn tại trong suốt thời gian chạy chương trình. Giá trị của nó không bị mất đi khi kết thúc hàm. Khác với biến static toàn cục là có thể gọi bất cứ đâu trong chương trình, biến static cục bộ chỉ có thể gọi trong nội bộ hàm khởi tạo nó. Mỗi lần hàm được gọi, giá trị của biến chính bằng giá trị tại lần gần nhất hàm được gọi.
 * Biến static toàn cục chỉ được truy cập và sử dụng trong nội bộ file khai báo nó, những file khác không truy cập được.
@@ -197,7 +200,7 @@ Về mặt ý nghĩa, struct và union cơ bản giống nhau. Tuy nhiên, về 
 </details>
 
 <details>
-  <summary><h2>▶Pointer</h2></summary>
+  <summary><h2>Pointer</h2></summary>
 	
 **:blue_square: Khái niệm con trỏ**
 * Bộ nhớ RAM chứa rất nhiều ô nhớ, mỗi ô nhớ có kích thước 1 byte.
@@ -274,9 +277,12 @@ int main()	{
 ```
 
 </details>
-	
+</details>
+
 <details>
-  <summary><h2>▶Class trong C++</h2></summary>
+  <summary><h1>▶C++ Language</h1></summary>
+<details>
+  <summary><h2>Class trong C++</h2></summary>
 
 **1. Class là gì?**
 
@@ -397,7 +403,7 @@ class Person {
 </details>
 	
 <details>
-  <summary><h2>▶Đặc tính của lập trình hướng đối tượng</h2></summary>
+  <summary><h2>Đặc tính của lập trình hướng đối tượng</h2></summary>
 
 **:blue_square:** **Có 4 đặc tính quan trọng của lập trình hướng đối tượng trong C++ mà chúng ta cần nắm vững sau đây:**
 
@@ -430,7 +436,7 @@ class Person {
 </details>
 	
 <details>
-  <summary><h2>▶Các đối tượng trong C++</h2></summary>
+  <summary><h2>Các đối tượng trong C++</h2></summary>
 	
 ## Namespace
 
@@ -538,6 +544,165 @@ map<char, int> b;
 	- Chỉ cần nắm được phần tử đầu và cuối là có thể quản lý được danh sách
 	
 	- Truy cập tới phần tử ngẫu nhiên phải duyệt từ đầu tới vị trí đó
-	
+
 	- Chỉ có thể tìm kiếm tuyến tính một phần tử
 </details>
+</details>
+
+<details>
+  <summary><h1>▶Embedded</h1></summary>
+<details>
+  <summary><h2>Protocol</h2></summary>
+
+  ## Giao thức SPI:
+
+**1. Khái niệm:**
+
+- SPI (Serial Peripheral Interface) là một chuẩn truyền thông nối tiếp tốc độ cao do Motorola đề xuất.
+	- Các bit dữ liệu được truyền nối tiếp nhau và có xung clock đồng bộ.
+   	- 1 Master có thể đấu nối song song với nhiều Slave.
+   	- Tại 1 thời điểm, 1 Master chỉ giao tiếp được với 1 Slave, Master và Slave có thể cùng nhận nhận và truyền dữ liệu
+   	- 1 Master giao tiếp với bao nhiêu Slave thì có bấy nhiêu chân CS.
+   	  
+- Bus SPI gồm có 4 đường tín hiệu:
+	- SCLK: Serial Clock
+	- MOSI: Master Out, Slave In
+	- MISO: Master In, Slave Out
+	- SS: Slave Select
+
+ **2. Cách truyền và nhận dữ liệu:**
+
+- Mỗi chip Master hay Slave sẽ có một thanh ghi dữ liệu 8 bit chứa dữ liệu cần gửi đi hoặc dữ liệu nhận về.
+  
+- Cứ mỗi xung nhịp do Master tạo ra trên chân SCLK, một bit trong thanh ghi dữ liệu của Master được truyền qua Slave trên đường MOSI, đồng thời một bit trong thanh ghi dữ liệu của Slave cũng được truyền qua cho Master trên đường MISO. Bit đó được lưu vào ô đầu tiên trong thanh ghi địa chỉ rồi dịch sang phải 1 bit, lặp lại tương tự đến khi truyền hết dữ liệu.
+
+**3. Các chế độ hoạt động:**
+
+- CPOL dùng để chỉ trạng thái của chân SCK ở trạng thái nghỉ. Chân SCK giữ ở mức cao khi CPOL=1 hoặc mức thấp khi CPOL=0.
+
+- CPHA dùng để chỉ các mà dữ liệu được lấy mẫu theo xung. Dữ liệu sẽ được lấy ở cạnh lên của SCK khi CPHA = 0 hoặc cạnh xuống khi CPHA = 1.
+  	- CPHA = 1: đầu tiên cho 1 xung clock trước, sau đó đưa dữ liệu vào, xung clock tiếp theo sẽ đẩy dữ liệu đi.
+  	- CPHA = 0: đưa data vào trước, sau đó dùng xung clock để đẩy data đi.
+
+ ![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/5e3edd15-bbdc-40c8-8d42-8bb46b62b65e)
+
+	- Mode 0 (mặc định) – xung nhịp của đồng hồ ở mức thấp (CPOL = 0) và dữ liệu được lấy mẫu khi chuyển từ thấp sang cao (cạnh lên) (CPHA = 0).
+
+	- Mode 1 - xung nhịp của đồng hồ ở mức thấp (CPOL = 0) và dữ liệu được lấy mẫu khi chuyển từ cao sang thấp (cạnh xuống) (CPHA = 1).
+
+	- Mode 2 - xung nhịp của đồng hồ ở mức cao (CPOL = 1) và dữ liệu được lấy mẫu khi chuyển từ cao sang thấp (cạnh lên) (CPHA = 0).
+
+	- Mode 3 - xung nhịp của đồng hồ ở mức cao (CPOL = 1) và dữ liệu được lấy mẫu khi chuyển từ thấp sang cao (cạnh xuông) (CPHA = 1).
+
+ ![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/a270ba85-b12c-4cb9-99bb-0e56c9489549)
+
+ ***Lưu ý:*** Khi giao tiếp SPI giữa vi điều khiển và các thiết bị ngoại vi khác như IC, cảm biến thì 2 bên bắt buộc hoạt động cùng Mode, nếu không dữ liệu truyền nhận có thể bị đọc sai.
+
+ ## Giao thức I2C:
+
+ **1. Khái niệm:**
+
+- I2C chỉ sử dụng hai dây để truyền dữ liệu giữa các thiết bị:
+ 
+	- SDA (Serial Data) - đường truyền cho master và slave để gửi và nhận dữ liệu.
+ 
+	- SCL (Serial Clock) - đường mang tín hiệu xung nhịp.
+ 
+- I2C là một giao thức truyền thông nối tiếp, vì vậy dữ liệu được truyền từng bit dọc theo một đường duy nhất (đường SDA).
+
+- Khi Master và Slave không giao tiếp với nhau, chân SDA và SCL luôn ở mức cao (có điện trở kéo lên).
+
+**2. Các  bước truyền dữ liệu:**
+
+![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/f9da16b4-9234-41b8-9d7d-1a6f8c25a9a0)
+
+
+- Master gửi điều kiện khởi động đến mọi slave được kết nối bằng cách chuyển đường SDA từ mức điện áp cao sang mức điện áp thấp trước khi chuyển đường SCL từ mức cao xuống mức thấp.
+
+- Master gửi cho mỗi slave địa chỉ 7 hoặc 10 bit của slave mà nó muốn giao tiếp, cùng với bit đọc / ghi.
+	- Bit đọc/ghi cho slave biết master muốn ghi dữ liệu vào nó hay nhận dữ liệu từ nó. Nếu master muốn gửi dữ liệu đến slave, bit đọc / ghi ở mức điện áp thấp. Nếu master đang yêu cầu dữ liệu từ slave, thì bit ở mức điện áp cao.
+
+- Mỗi slave sẽ so sánh địa chỉ được gửi từ master với địa chỉ của chính nó. Nếu địa chỉ phù hợp, nó sẽ gửi lại một bit ACK điện áp thấp cho master. Nếu địa chỉ không khớp, slave không làm gì cả và đường SDA vẫn ở mức cao
+  
+- Master gửi hoặc nhận khung dữ liệu.
+ 
+- Sau khi mỗi khung dữ liệu được chuyển, thiết bị nhận trả về một bit ACK khác cho thiết bị gửi để xác nhận đã nhận thành công khung.
+ 
+- Để dừng truyền dữ liệu, master gửi điều kiện dừng đến slave bằng cách chuyển đổi mức cao SCL trước khi chuyển mức cao SDA.
+
+## Giao thức UART:
+
+**1. Khái niệm:**
+
+![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/b43f2639-f3c1-48ec-a909-dad3fc10eeed)
+
+
+- UART là giao thức không đồng bộ, do đó không có đường clock nào điều chỉnh tốc độ truyền dữ liệu. Người dùng phải đặt cả hai thiết bị để giao tiếp ở cùng tốc độ. Tốc độ này được gọi là tốc độ truyền, được biểu thị bằng bit trên giây hoặc bps. 
+
+- Các UART giao tiếp giữa hai nút riêng biệt bằng cách sử dụng một cặp dẫn và một nối đất chung.
+  	- TX: truyền dữ liệu
+  	- RX: nhận dữ liệu
+- Tại 1 thời điểm, UART có thể cùng truyền và nhận dữ liệu
+
+- Ở trạng thái không giao tiếp, chân TX luôn ở mức cao (có điện trở kéo lên).
+
+- UART là một giao thức một master, một slave, trong đó một thiết bị được thiết lập để giao tiếp với duy nhất một thiết bị khác.
+
+**2. Cách truyền, nhận dữ liệu:**
+
+- Dữ liệu truyền qua UART được tổ chức thành các gói. Mỗi gói chứa 1 bit bắt đầu, 5 đến 9 bit dữ liệu (tùy thuộc vào UART), một bit chẵn lẻ tùy chọn và 1 hoặc 2 bit dừng.
+  
+![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/5572383e-070d-4c24-9837-b5189a6cf680)
+
+- Start bit: Để bắt đầu truyền dữ liệu, UART truyền sẽ kéo đường truyền từ mức cao xuống mức thấp trong một chu kỳ clock. Khi UART nhận phát hiện sự chuyển đổi điện áp cao xuống thấp, nó bắt đầu đọc các bit trong khung dữ liệu ở tần số của tốc độ truyền.
+
+- Khung dữ liệu chứa dữ liệu thực tế được chuyển. Nó có thể dài từ 5 bit đến 8 bit nếu sử dụng bit chẵn lẻ. Nếu không sử dụng bit chẵn lẻ, khung dữ liệu có thể dài 9 bit. Trong hầu hết các trường hợp, dữ liệu được gửi với bit ít quan trọng nhất trước tiên.
+
+- Bit chẵn lẻ: là một cách để UART nhận cho biết liệu có bất kỳ dữ liệu nào đã thay đổi trong quá trình truyền hay không (bức xạ điện từ, tốc độ truyền không khớp hoặc truyền dữ liệu khoảng cách xa). Sau khi UART nhận đọc khung dữ liệu, nó sẽ đếm số bit có giá trị là 1 và kiểm tra xem tổng số là số chẵn hay lẻ. Nếu bit chẵn lẻ là 0 (tính chẵn), thì tổng các bit 1 trong khung dữ liệu phải là một số chẵn. Nếu bit chẵn lẻ là 1 (tính lẻ), các bit 1 trong khung dữ liệu sẽ tổng thành một số lẻ. Khi bit chẵn lẻ khớp với dữ liệu, UART sẽ biết rằng quá trình truyền không có lỗi. Nhưng nếu bit chẵn lẻ là 0 và tổng là số lẻ; hoặc bit chẵn lẻ là 1 và tổng số là chẵn, UART sẽ biết rằng các bit trong khung dữ liệu đã thay đổi.
+ 
+- Bit dừng: để báo hiệu sự kết thúc của gói dữ liệu, UART gửi sẽ điều khiển đường truyền dữ liệu từ điện áp thấp đến điện áp cao trong ít nhất khoảng 2 bit.
+
+</details>
+
+<details>
+  <summary><h2>Interrupt</h2></summary>
+
+**1. Khái niệm:**
+
+- Ngắt là đoạn chương trình độc chạy độc lập với chương trình chính, có độ ưu tiên cao, khi xảy ra ngắt nó sẽ chạy hết chương trình ngắt sau đó mới tiếp tục chạy chương trình chính.
+
+- Ngắt là một số sự kiện khẩn cấp bên trong hoặc bên ngoài bộ vi điều khiển xảy ra, buộc vi điều khiển tạm dừng thực hiện chương trình hiện tại, phục vụ ngay lập tức nhiệm vụ mà ngắt yêu cầu – nhiệm vụ này gọi là trình phục vụ ngắt.
+
+- Khi xảy ra ngắt, con trỏ PC sẽ trỏ đến địa chỉ ngắt.
+
+- Mỗi vi điều khiển có 1 trình phục vụ ngắt riêng (độ ưu tiên ngắt, địa chỉ phục vụ ngắt, cờ ngắt)
+
+**2. Các loại ngắt:**
+
+- Ngắt ngoài: người dùng có thể tự setup chế độ.
+	- Ví dụ: Các chế độ ngắt trong arduino: 
+  		- LOW: chân digital có mức 0 được giữ liên tục -> xảy ra ngắt.
+  		- HIGH: chân digital có mức 1 được giữ liên tục -> xảy ra ngắt.
+  		- RISING: chân digital chỉ cần có xung từ mức 0 lên mức 1 -> xảy ra ngắt.
+  		- FALLING: chân digital chỉ cần có xung từ mức 1 xuống mức 0 -> xảy ra ngắt.
+- Ngắt truyên thông:
+
+  ![image](https://github.com/hunggiao/Embedded-Interview/assets/133474779/2b4f4abd-10de-4d1c-9546-ac5563160e6f)
+
+:arrow_right: UART A và UART B có 2 thời điểm truyền, nhận khác nhau. Do khi truyền nhận data có thể bị thiếu hoặc sai.
+
+:arrow_right: Do đó người ta sử dụng ngắt truyền thông ở UART B: khi chân RX có data thì nó sẽ vào chương trình ngắt để đọc data, đọc xong thì quay lại chương trình chính.
+
+</details>
+</details>
+
+
+
+
+  
+
+ 
+
+ 
+
+
