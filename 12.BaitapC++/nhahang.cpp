@@ -172,7 +172,12 @@ Manager::Manager(){
             listDishes();
             break;
         case TAB_NUMBER:
-            noTable();
+            uint8_t num;
+            cout<<"--SETTING NUMBER OF TABLE--"<<endl;
+            cout<<"Enter number of table: ";
+            cin>>num;
+            cin.ignore();
+            noTable(num);
             break;
         case OUT:
             exit(0);
@@ -192,19 +197,6 @@ Manager::Manager(){
 */   
 list <Food> Manager::getdatabase(){
     return this->database;
-}
-
- /*
-* Class: Manager
-* Function: getNotab
-* Description: This function use for get number of tables
-* Input:
-*   Dont have input parameters
-* Output:
-*   return: database
-*/   
-uint8_t Manager::getNotab(){
-    return this->noTab;
 }
 
 /*
@@ -236,9 +228,9 @@ void Manager::addDishes(){
         } while (cost < 0);
         
         Food newFood(name, cost);
-        database.push_back(themmon);
+        database.push_back(newFood);
         cout << "ID\t" << "Name\t\t" << "Price" << endl;
-        cout << newFood.getId() << "." << "\t" << newFood.getName() << "\t\tVND" << newFood.getPrice() << endl;
+        cout << newFood.getid() << "." << "\t" << newFood.getName() << "\t\tVND" << newFood.getCost() << endl;
         cout << "1. Continue to add food" << endl;
         cout << "0. Turn back" << endl;
         cout << "Enter option: \n";
@@ -256,11 +248,11 @@ void Manager::addDishes(){
 * Output:
 *   return: None
 */  
-void screenMenu(){
+void Manager::screenMenu(){
     cout << "=======Menu=======" << endl;
     cout << "ID\tName\t\tPrice\n";
-    for (auto& food : Menu) {
-        cout << food.getId() << "." << "\t" << food.getName() << "\t\tVND" << food.getPrice() << endl;
+    for (auto& food : database) {
+        cout << food.getid() << "." << "\t" << food.getName() << "\t\tVND" << food.getCost() << endl;
     }
 }
 
@@ -323,7 +315,7 @@ void Manager::modifyDishes(){
                 }
                 haveDishes = 1;
                 break;
-            } while (key != 0)
+            } while (key != 0);
         }
         if(haveDishes != 1) cout<<"Can't find dishes with id code: "<<id<<endl;
     }
@@ -396,292 +388,279 @@ void Manager::listDishes(){
 */   
 void Manager::noTable(uint8_t numofTable){
     this->noTab = numofTable;
-    cout<<"--SETTING NUMBER OF TABLE--"<<endl;
-    cout<<"Enter number of table: ";
-    cin>>noTab;
-    cin.ignore();
+}
+
+ /*
+* Class: Manager
+* Function: getNotab
+* Description: This function use for get number of tables
+* Input:
+*   Dont have input parameters
+* Output:
+*   return: database
+*/   
+uint8_t Manager::getNotab(){
+    return this->noTab;
 }
 
 /*********************Class inforTab*********************/
-enum statusTable{Open, Close};
-
-
-class Table {
-    public:
-        int id;
-        statusTable status;
-        list<Food> orders;
-
-        Table(int _id);
-        void addFood(Food& food);
-        void removeFood(int foodId);
-        void Bill();
-};
-
-Table::Table(int _id) : id(_id) {status = Open;}
-
-void Table::addFood(Food& food) {
-    if (status == Close) {
-        cout << "Table " << id << " is closed. Cannot add food." << endl;
-    }
-    else {
-        orders.push_back(food);
-        cout << "Added \"" << food.getName() << "\" to table " << id << endl;
-        status = Close;
-    }
-}
-
-void Table::removeFood(int foodId) {
-    auto position = orders.begin();
-    if (status == Close) {
-        cout << "Table " << id << " is closed. Cannot remove food." << endl;
-    }
-    else {
-        bool haveDish = false;
-        for (auto it : orders) {
-            if (it->getId() == foodId) {
-                orders.erase(position);
-                cout << "Removed food with ID " << foodId << " from table " << id << endl;
-                haveDish = true;
-                break;
-            }
-            position++;
-        }
-        if (!haveDish) {
-            cout << "Food with ID " << foodId << " is not found in table " << id << endl;
-        }
-    }
-}
-
-void Table::Bill() {
-    double total = 0;
-    cout << "==== Bill for table " << id << " ====" << endl;
-    for (Food& food : orders) {
-        total += food.getCost();
-        cout << food.getName() << ": \t\t$" << food.getCost() << endl;
-    }
-    cout << "Total: \t\t$" << total << endl;
-
-    orders.clear();
-    status = Open;
-}
-/*********************Class Employee*********************/
-class Employee : Manager {
+class inforTab{
     private:
-        bool isTableCreated;
+        uint8_t num;
+        bool status;
+        typedef struct{
+            Food dishes;
+            uint8_t quanlity;
+        }typeDishes;
+        list <typeDishes> Database_dish;
     public:
-        Employee() : isTableCreated(false) {}
-        list <Table> tables;
-        void createTables(int num);
-        void displayTableList();
-        void displayMenu();
-        void addFoodToTable(int tableId, int foodId);
-        void removeFoodFromTable(int tableId, int foodId);
-        void calculateBillForTable(int tableId);
-        void printTableStatus() ;
+        inforTab(uint8_t Num, bool Status);
+        uint8_t getNumTab();
+        bool getStatus();
+        void listFood();
+        void add(Manager ql, Food dish, uint8_t Quanlity, uint8_t id);
+        void edit(uint8_t id, uint8_t Quanlity);
+        void erase(uint8_t id);
+        void display(typeDishes typefood);
+        
 };
 
-void Employee::createTables(int num) {
-    if (!isTableCreated) {
-        for (int i = 1; i <= num; i++) {
-            Table table(i);
-            tables.push_back(table);
-        }
-        isTableCreated = true;
-    }
+inforTab::inforTab(uint8_t Num, bool Status){
+    num = Num;
+    status = Status;
 }
 
-void Employee::displayTableList() {
-    if (!tables.empty()) {
-        cout << "=== Table list ===" << endl;
-        cout << "Table\tStatus" << endl;
-        for ( const Table& table : tables) {
-            cout << "  " << table.id << "   -   ";
-            if (table.status == Open) {
-               cout << "O";
-            }
-            else {
-                cout << "X";
-            }
-            cout << endl;
-        }
-    } else {
-        cout << "Table list is empty." << endl;
-    }
+uint8_t inforTab::getNumTab(){
+    return num;
 }
 
-void Employee::displayMenu() {
-    cout << "==== Restaurant Menu ====" << endl;
-    for (auto& food : database) {
-        cout << "ID: " << food.getid() << " - Name: " << food.getName() << " - Price: $" << food.getPrice() << endl;
-    }
+bool inforTab::getStatus(){
+    return status;
 }
 
-void Employee::addFoodToTable(int tableId, int foodId) {
-    for (Table& table : tables) {
-        if (table.id == tableId) {
-            for (Food& food : database) {
-                if (food.getid() == foodId) {
-                    table.addFood(food);
-                    return;
-                }
-            }
-            cout << "Food with ID " << foodId << " does not exist in the menu." << endl;
-            return;
+void inforTab::add(Manager ql, Food dish, uint8_t Quanlity, uint8_t id){
+    cout<<"--ADD DISH FOR TABLE--"<<endl;
+    typeDishes typefood;
+    for(Food &item : ql.getdatabase()){
+        if(item.getid() == id){
+            typefood.dishes.setName(item.getName());
+            typefood.dishes.setCost(item.getCost());
+            cout<<"Successfully add dishes!"<<endl;
+            cout<<"Show list of dishes"<<endl;
+            cout<<"ID: "<<id<<endl;
+            cout<<"NAME: "<<item.getName()<<endl;
+            cout<<"COST: "<<item.getCost()<<endl;
+            cout<<"QUANLITY: "<<Quanlity<<endl;
         }
     }
-    cout << "Table " << tableId << " does not exist." << endl;
 }
 
-void Employee::removeFoodFromTable(int tableId, int foodId) {
-    for (Table& table : tables) {
-        if (table.id == tableId) {
-            table.removeFood(foodId);
-            return;
-        }
+class Employee{
+    private:
+        list <Food> database_food;
+        list <inforTab> database_table;
+    public:
+        Employee(list <Food> database, uint8_t numtab);
+        list <inforTab> getDataEmployee();
+};
+
+Employee::Employee(list <Food> database, uint8_t numtab){
+    database_food.assign(database.begin(), database.end());
+
+    for (int i = 0; i <= numtab; i++)
+    {
+        inforTab table(i, false);
     }
-    cout << "Table " << tableId << " does not exist." << endl;
+    
 }
 
-void Employee::calculateBillForTable(int tableId) {
-    for (Table& table : tables) {
-        if (table.id == tableId) {
-            table.Bill();
-            return;
-        }
-    }
-    cout << "Table " << tableId << " does not exist." << endl;
+list <inforTab> Employee::getDataEmployee(){
+    return database_table;
 }
-
-void Employee::printTableStatus() {
-    cout << "Table status:" << endl;
-    for (const Table& table : tables) {
-        cout << "Table " << table.id << ": ";
-        if (table.status == Open) {
-            cout << "Open";
-        }
-        else {
-            cout << "Close";
-        }
-        cout << endl;
-    }
-}
-
-void displayToConsoleScreen(){
-    Manager manager;
-    Employee employee;
-    int option, choice;
-
-    do {
-        cout << "=== Menu ===\n1. MANAGER\n2. EMPLOYEE\n";
-        cout << "0.TURN BACK!\n";
-        cin >> option;
-
-        switch (option){
-            case 1:
-                do {
-                    cout << "======== MANAGER ========\n1. Add Food to Menu\n2. Edit Food in Menu\n";
-                    cout << "3. Delete Menu Food\n4. Show Menu\n5. Set up number of Table\n";
-                    cout << "0. Turn back!\n";
-                    cin >> choice;
-
-                    switch (choice){
-                        case 0:
-                            break;
-                        case 1:
-                            employee.addMenu();
-                            break;
-                        case 2: 
-                            employee.editMenu();
-                            break;
-                        case 3:
-                            employee.eraserMenu();
-                            break;
-                        case 4: 
-                            employee.displayMenu();
-                            break;
-                        case 5:
-                            int num;
-                            cout << "Enter number of Table: \n";
-                            cin >> num;
-                            employee.setTableQuantity(num);
-                            break;
-                        default:
-                            cout << "Invalid choice. Please try again.\n";
-                            break;
-                    }
-                } while (choice != 0);
-                break;
-
-            case 2:
-                employee.createTables(employee.getTableQuantity());
-                employee.displayTableList();
-
-                int tableId;
-                cout << "Enter table ID: ";
-                cin >> tableId;
-
-                do {
-                    cout << "====== EMPLOYEE ======\n1. Add Food to Table\n";
-                    cout << "2. Delete Table Food\n3. Show Menu\n4. Paying\n";
-                    cout << "0. Turn back!\n";
-                    cin >> choice;
-
-                    switch (choice){
-                        case 0:
-                            break;
-                        case 1:
-                            int foodId;
-                            cout << "Enter food ID: ";
-                            cin >> foodId;
-                            employee.addFoodToTable(tableId, foodId);
-                            break;
-                        case 2:
-                            cout << "Enter food ID: ";
-                            cin >> foodId;
-                            employee.removeFoodFromTable(tableId, foodId);
-                            break;
-                        case 3: 
-                            employee.displayMenu();
-                            break;
-                        case 4:
-                            employee.calculateBillForTable(tableId);
-                            break;
-                        default:
-                            cout << "Invalid choice. Please try again.\n";
-                            break;
-                    }
-                } while (choice != 0);
-                break;
-        }
-    } while (option != 0);
-}
-
-
-typedef enum{
-    MANAGER,
-    EMPLOYEE
-}menu;
 
 int main(int argc, char const *argv[])
-{   
-    uint8_t key;
-    do
-    {
-        cout<<"--ORDER PROGRAM--"<<endl;
-        cout<<"1. MANAGER"<<endl;
-        cout<<"2. EMPLOYEE"<<endl;
-        cout<<"Please choose key: ";
-        cin>>key;
-    } while (key != 1 && key != 2);
-    
-    switch ((menu)key){
-        case MANAGER:
-            Manager ql();
-            break;
-        case EMPLOYEE:
-            Employee nv();
-            break;
+{
+    uint8_t choose1, choose2_1, choose3_1, choose2_2, choose3_2;
+    bool a = false, n = false;
+    uint8_t key = 0;
+    Food dish;
+    Manager ql;
+    uint8_t id;
+    uint8_t Table_have_customer;
+    while(a==false){
+        bool b = false;
+        cout << "1. Quan Li" <<endl;
+        cout << "2. Nhan Vien" <<endl;
+        cout <<"Nhap lua chon: ";
+        cin >> choose1;
+        cin.ignore();
+        cout << endl;
+        while(b==false){
+            bool c1 = false, c2 = false;
+            switch (choose1){
+                case 1: {
+                    cout << "1. Them mon" << endl;
+                    cout << "2. Sua mon" << endl;
+                    cout << "3. Xoa mon" << endl;
+                    cout << "4. Danh sach mon" << endl;
+                    cout << "5. Thiet lap so ban " << endl;
+                    cout << "0. Quay lai" << endl;
+                    cout << endl;
+                    cout << "Nhap lua chon: ";
+                    cin >> choose2_1;
+                    cin.ignore();
+                    cout << endl;
+                    while(c1==false){
+                        switch (choose2_1){
+                            case 1:{
+                                cout << "Them mon: " << endl;
+                                dish.NhapMonAn();
+                                QL.ThemMon(MA);
+                                break;
+                            }
+                            case 2:{
+                                cout << "Sua mon an: " << endl;
+                                cout << "Nhap ID: ";
+                                cin >> id;
+                                cout <<endl;
+                                QL.SuaMon(id);
+                                QL.CapNhatID();
+                                break;
+                            }
+                            case 3:{
+                                cout << "Xoa mon an: " << endl;
+                                cout << "Nhap ID: ";
+                                cin >> id;
+                                cout << endl;
+                                if(n==true){
+                                    id=id-1; 
+                                    /*Vï¿½ khi xï¿½a 1 d?i tu?ng kh?i danh sï¿½ch (tr? d?i tu?ng cu?i), cï¿½c d?i tu?ng bï¿½n tay ph?i s?
+                                    lï¿½i qua bï¿½n trï¿½i d? thay th? v? trï¿½ c?a d?i tu?ng dï¿½ xï¿½a nï¿½n id c?n gi?m 1 don v?*/
+                                }
+                                QL.XoaMon(id);
+                                QL.CapNhatID();
+                                break;
+                            }
+
+                            case 4:{
+                                cout << "Danh sach cac mon an: " << endl;
+                                QL.DanhSachMon();
+                                QL.CapNhatID();
+                                break;
+                            }
+
+                            case 5:{
+                                QL.ThietLapSoBan();
+                                break;
+                            }
+                        }
+                        if(LuaChon2_1 == 0){
+                            c1 = true;
+                            b = true;
+                            continue;
+                        }
+
+                        cout << "1. Tiep tuc" <<endl;
+                        cout << "0. Quay lai" <<endl;
+                        cout <<"Nhap lua chon: ";
+                        cin >> LuaChon3_1;
+                        cout << endl;
+                        if(LuaChon3_1 == 1){
+                            c1 = false;
+                            n = true;
+                        }
+                        else if(LuaChon3_1 == 0){
+                            c1 = true;
+                            n = false;
+                        }
+                        else{
+                            cout<<"Lua chon khong hop le"<<endl;
+                            c1 = true;
+                        }
+                    }
+                    break;
+                }
+
+                case 2: {
+                    NhanVien NV(QL.getData(), QL.getSoBan());
+                    //ThongTinBan TTB(QL.getSoBan(), false);
+                    cout<<"Chon ten so ban: ";
+                    cin>>key;
+                    cout<<endl;
+                    //ThongTinBan TTB(key, true);
+                    for(ThongTinBan& TTB : NV.getData_NV()){
+                        if(TTB.getSoBan() == key){
+                            cout<<"1. Them mon"<<endl;
+                            cout<<"2. Sua mon" << endl;
+                            cout<<"3. Xoa mon" << endl;
+
+                            cout<<"Nhap lua chon: ";
+                            cin>>LuaChon2_2;
+                            cout<<endl;
+
+                            while(c2==false){
+                                switch (LuaChon2_2){
+                                    case 1:{ //Thi?t l?p s? bï¿½n cï¿½ khï¿½ch
+                                        cout<<"Nhap ID can tim";
+                                        cin>> id;
+                                        cout<<endl;
+
+                                        cout<<"Nhap so luong mon an: ";
+                                        cin>> soLuong;
+                                        cout<<endl;
+                                        TTB.themMon(QL, MA, soLuong, id);
+                                        break;
+                                    }
+                                    case 2:{
+                                        //TTB.xoaMon();
+                                        break;
+                                    }
+                                    case 3:{
+                                        break;
+                                    }
+                                    case 4:{
+                            
+                                        break;
+                                    }
+                                    case 5:{
+                                        break;
+                                    }
+                                }
+
+                                if(LuaChon2_2 == 0){
+                                    c2 = true;
+                                    b = true;
+                                    continue;
+                                }
+
+                                cout << "1. Tiep tuc" <<endl;
+                                cout << "0. Quay lai" <<endl;
+                                cout <<"Nhap lua chon: ";
+                                cin >> LuaChon3_2;
+                                cout << endl;
+                                if(LuaChon3_2 == 1){
+                                    c2 = false;
+                                    n = true;
+                                }
+                                else if(LuaChon3_2 == 0){
+                                    c2 = true;
+                                    n = false;
+                                }
+                                else{
+                                    cout<<"Lua chon khong hop le"<<endl;
+                                    c2 = true;
+                                }
+                            }
+                        }
+                    }
+                    break;
+                }
+                default:
+                    b == true;
+                    break;
+            }
+        }
     }
     return 0;
 }
+

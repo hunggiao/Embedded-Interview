@@ -5,105 +5,80 @@
 #include <string.h>
 #include <math.h>
 
-int length (char array[]){
-    int i = 0;
-    while (array[i]!='\0'){
-        i++;
+#define MAX 100
+
+char words[MAX][50];
+int count[MAX] = {0};
+int wordCount = 0;
+int lenght = 0;
+
+int isEqual(const char arr1[], const char arr2[]){
+  int i = 0;
+  while (arr1[i] != '\0' && arr2[i] != '\0'){
+    if(arr1[i] != arr2[i]){
+      return 0;
     }
-    return i;
-}
-
-char *splitWords(char *string, const char *delim) {
-
-  /* Biến tĩnh được sử dụng để giữ theo dõi chỉ mục của chuỗi trong mỗi lệnh gọi hàm */
-  static char * index;
-
-  // Trường hợp ban đầu, nơi người dùng chuyển chuỗi thực trong splitWords
-  if (string != NULL) {
-    index = string;
-  } else {
-  // các trường hợp khác, trong đó NULL được thông qua
-    string = index;
+    i++;
   }
-
-  // Trường hợp cuối cùng là '\ 0'
-  if ( *index == '\0') {
-    return NULL;
-  }
-
-  while ( * index != '\0') {
-    // Lặp lại từng dấu phân cách và kiểm tra xem có bất kỳ dấu phân cách nào khớp với ký tự không
-    for (int i = 0; delim[i] != '\0'; i++) {
-      if ( *index == delim[i]) {
-
-        // không quan tâm đến trường hợp sau khi không có ký tự nào 
-        // không có sẵn để in trước dấu phân cách. 
-        // Trường hợp này xảy ra khi hai dấu phân cách nằm cạnh nhau.
-        if (index == string) {
-          index++;
-          string++;
-        } else {
-          *index = '\0';
-          break;
-        }
-      }
-    }
-
-    // trả lại index
-    if ( *index == '\0') {
-      index++;
-      return string;
-    }
-
-    index++;
-  }
-  return string;
-
+  return arr1[i] == '\0' && arr2[i] == '\0';
 }
 
-
-void cpyArray(char *s, char *t){
-    int i=0;
-    while ((s[i] = t[i]) != '\0') i++;
-}
-
-
-int compareArray(char *s, char *t){
-    int i;
-    for (i = 0; s[i] == t [i]; i++)
-        if (s[i] == '\0') return 0;
-    return s[i] - t[i];
-}
-
-int main(){
-    char c[] = {"mot hai mot hai mot mot, ba bon ba hai mot"};
-    char a[10][10];
-    int n = 0;
-    char *token = splitWords(c, ", ");
-    while (token != NULL)
-    {
-        cpyArray(a[n],token);
-        ++n;
-        token = splitWords(NULL,", ");
-    }
-    int b[100] = {0};
-    for (int i = 0; i < n; i++)
-    {
-        if (b[i]==0)    
-        {
-            int cnt = 1;
-            for (int j = i+1; j < n; j++)
-            {
-               if (compareArray(a[i],a[j])==0)
-               {
-                ++cnt;
-                b[j] = 1;
-               }
-               
+void splitword(const char str[]){
+  int i = 0;
+  while (str[i] != '\0'){
+    if (str[i] != ' ' && str[i] != ',' && str[i] != '.' && str[i] != '?' && str[i] != '!') {
+        words[wordCount][lenght] = str[i];
+        lenght++;
+        }else{
+            if(lenght > 0){
+                words[wordCount][lenght] = '\0';
+                wordCount++;
+                lenght = 0;
             }
-            printf("%s %d\n",a[i],cnt);
         }
-        
+        i++;
+  }
+        if (lenght > 0) {
+        words[wordCount][lenght] = '\0';
+        wordCount++;
     }
-    
 }
+
+void countword(){
+
+    for (int i = 0; i < wordCount; i++) {
+        if (count[i] == -1) {
+            continue;
+        }
+
+        count[i] = 1;
+
+        for (int j = i + 1; j < wordCount; j++) {
+            if (count[j] != -1 && isEqual(words[i], words[j])) {
+
+                count[i]++; // Tăng số lần xuất hiện của từ
+                count[j] = -1; // Đánh dấu từ này đã được đếm
+            }
+        }
+    }
+}
+
+void printword(){
+    for (int i = 0; i < wordCount; i++) {
+        if (count[i] != -1) {
+            printf("Tu '%s' xuat hien %d lan\n", words[i], count[i]);
+        }
+    }
+}
+
+int main(int argc, char const *argv[])
+{
+  char array[] = {"mot hai mot hai mot mot, ba bon ba"};
+  splitword(array);
+  countword();
+  printword();
+  return 0;
+}
+
+
+  
