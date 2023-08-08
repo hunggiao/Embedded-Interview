@@ -698,9 +698,37 @@ map<char, int> b;
 :arrow_right: Do đó người ta sử dụng ngắt truyền thông ở UART B: khi chân RX có data thì nó sẽ vào chương trình ngắt để đọc data, đọc xong thì quay lại chương trình chính.
 
 </details>
+<details>
+  <summary><h2>Timer</h2></summary>
+
+**1. Khái niệm:**
+
+- Bộ đếm/Bộ định thời: Đây là các ngoại vi được thiết kế để thực hiện một nhiệm vụ đơn giản: đếm các xung nhịp. Mỗi khi có thêm một xung nhịp tại đầu vào đếm thì giá trị của bộ đếm sẽ được tăng lên 01 đơn vị (trong chế độ đếm tiến/đếm lên) hay giảm đi 01 đơn vị (trong chế độ đếm lùi/đếm xuống).
+
+**2. Cấu hình 1 timer:**
+
+```
+  / Time base configuration /
+  TIM4_TimeBaseInit(TIM4_PRESCALER_128, 16); //bộ chia, giới hạn bộ đếm
+  / Clear TIM4 update flag /
+  TIM4_ClearFlag(TIM4_FLAG_UPDATE); //khi đếm đến giới hạn bộ đếm thì sẽ có cờ tràn(khi tràn -> xảy ra ngắt). Xóa cờ này 				       đi để chắc chắn không tràn
+  / Enable update interrupt /
+  TIM4_ITConfig(TIM4_IT_UPDATE, ENABLE); //đăng kí ngắt vào bảng vector ngắt
+  
+  / enable interrupts /
+  enableInterrupts(); //bật các ngắt trong bảng vector
+
+  / Enable TIM4 /
+  TIM4_Cmd(ENABLE); //timer sẽ bắt đầu đếm
+
+```
 </details>
 
+<details>
+  <summary><h2>CAN</h2></summary>
 
+
+  
 
 
   
