@@ -170,7 +170,7 @@ _Ví dụ trường hợp khởi tạo vùng nhớ Heap quá lớn:_
     PORTA = PORTA |(0b10000000 >> pin);
 ```
 
-=> Giả sử set chân PIN4 về mức cao thì pin=5, 0b10000000 dịch sang phải 5 bit là: 0b00001000 rồi thực hiện phép AND với PORTA thì cho kết quả là: 0b00001000 (chân PIN4 đã set về mức cao).
+=> Giả sử set chân PIN4 về mức cao thì pin=5, 0b10000000 dịch sang phải 5 bit là: 0b00001000 rồi thực hiện phép OR với PORTA thì cho kết quả là: 0b00001000 (chân PIN4 đã set về mức cao).
 > Thuật toán set mức thấp: PORTA=0b11111111
 ```
     PORTA = PORTA & ~(0b10000000 >> pin); 
