@@ -782,10 +782,11 @@ Data Frame CAN (Phiên bản 2.0A) tiêu chuẩn bao gồm bảy trường bit k
 **3.2. Trường xác định quyền ưu tiên (Arbitration Field)**
 
 - Định dạng vùng xác định quyền ưu tiên là khác nhau đối với dạng khung chuẩn và khung mở rộng.
-● Định dạng chuẩn: vùng xác định quyền ưu tiên có độ dài 12 bit, bao gồm
-11 bit ID và 1 bit RTR.
-● Định dạng mở rộng: trường xác định quyền ưu tiên có độ dài 32 bit, bao
-gồm có 29 bit ID, 1 bit SRR, 1 bit IDE và 1 bit RTR
+  
+● Định dạng chuẩn: vùng xác định quyền ưu tiên có độ dài 12 bit, bao gồm 11 bit ID và 1 bit RTR.
+
+● Định dạng mở rộng: trường xác định quyền ưu tiên có độ dài 32 bit, bao gồm có 29 bit ID, 1 bit SRR, 1 bit IDE và 1 bit RTR
+
 - Trong đó:
 	- Bit RTR (Remote Transmission Request)
 		- Là bit dùng để phân biệt khung là Data Frame hay Remote Frame.
