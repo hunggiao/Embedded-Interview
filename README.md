@@ -759,6 +759,7 @@ map<char, int> b;
   	- Nếu <= 1.5V -> CAN ở trạng thái recessive (bit 1)
 - Tại 1 thời điểm, chỉ có 1 node truyền, các node còn lại nhận. Để nhận biết node truyền, node nhận thì ta dựa vào bit ID, bit ID càng nhỏ độ ưu tiên càng cao.
 - Giả sử 1 node xuất ra CAN_H = 4V, CAN_L = 1V thì nó cũng có thể nhận lại mức điện áp đó. Tại thời điểm đó, nó hiểu là chỉ có 1 mình nó truyền dữ liệu.
+  
 ***Ví dụ:*** Có 3 MCU truyền CAN low speed
 MCU A: 0000 0010
 MCU B: 0000 1000
