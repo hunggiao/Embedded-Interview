@@ -1,0 +1,9 @@
+﻿  pch.cpp
+C:\Users\HP\Desktop\Protocol\Protocol\pch.h(17,1): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
+          with
+          [
+              _Ty=uint8_t
+          ]
+  test.cpp
+pch.obj : error LNK2005: "private: static class std::vector<unsigned char,class std::allocator<unsigned char> > MCU::bus" (?bus@MCU@@0V?$vector@EV?$allocator@E@std@@@std@@A) already defined in test.obj
+C:\Users\HP\Desktop\Protocol\x64\Debug\Protocol.exe : fatal error LNK1169: one or more multiply defined symbols found

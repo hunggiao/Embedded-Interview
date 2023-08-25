@@ -15,7 +15,6 @@ int length (char array[]){
 int main(){
     char array[] = {"mot hai ba, bon nam"};
     printf("Chuoi ban dau: %s\n",array);
-    printf("%d",length(array));
     int len;
     len=length(array);
     printf("Chuoi sau khi dao: ");

@@ -8,13 +8,15 @@ using namespace std;
     definition of method
 }
 */
-void test(){
+void test(){   // được lưu ở phân vùng stack
     int a = 10;
     auto test = [](int a, int b)->int{
         return a+b;
     };
     cout<<test(6,7)<<endl;
 }
+
+/*bool myfunction (int i, int j) = {return i<j};*/
 
 //Khi kết thúc test thì những địa chỉ, biến trong test bị thu hồi hết
 //Trong hàm tốn bộ nhớ hơn lambda
@@ -23,7 +25,7 @@ int main(int argc, char const *argv[])
 {
     test();
     int d = 10, e = 15, f = 20;
-    auto tong = [=](int a, int b)->int{
+    auto tong = [=](int a, int b)->int{ //  [=]: những biến mà mình sử dụng thì nó sẽ tự hiểu
         return a+b+d+e+f;
     };
     cout<<tong(5,5)<<endl;

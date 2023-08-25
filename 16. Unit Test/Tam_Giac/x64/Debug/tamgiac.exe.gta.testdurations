@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GtaTestDurations xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Executable>C:\Users\HP\Desktop\tamgiac\x64\Debug\tamgiac.exe</Executable>
+  <TestDurations>
+    <TestDuration Test="determineTriangleTypeTest.TamGiacCan" Duration="1" />
+    <TestDuration Test="determineTriangleTypeTest.TamGiacThuong" Duration="1" />
+    <TestDuration Test="determineTriangleTypeTest.TamGiacDeu" Duration="1" />
+    <TestDuration Test="determineTriangleTypeTest.TamGiacVuong" Duration="1" />
+  </TestDurations>
+</GtaTestDurations>
